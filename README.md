@@ -4,6 +4,7 @@ This mod is for the PMDG 737-700 for MSFS and the PMDG 737 NGX/NGXu/NG3
 
 **The web CDU requires an up-to-date browser to work !**
 
+**This is a work in progress. There might still be bugs around so please note that it might not work as expected.**
 ## Instructions
 
 1. Most importantly: follow the instructions in the chapter about the PMDG aircraft in the Axis & Oh's manual!
