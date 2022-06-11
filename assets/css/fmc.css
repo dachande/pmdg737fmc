@@ -1,0 +1,274 @@
+:root {
+  --bodyHeightScale: 1;
+}
+
+@keyframes TemporaryShow {
+  0%, 100% {
+    visibility: visible;
+  }
+}
+@keyframes TemporaryHide {
+  0%, 100% {
+    visibility: hidden;
+  }
+}
+
+@font-face {
+  font-family: "Consolas";
+  src: url("../fonts/consola.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  touch-action: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: "Consolas";
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.FmcSelect {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.FmcSelect::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.65);
+}
+
+.FmcSelect__Content {
+  position: relative;
+  padding: 32px;
+}
+
+.FmcSelect__Header,
+.FmcSelect__Subheader {
+  text-align: center;
+}
+
+.FmcSelect__Header {
+  margin: 0 0 120px;
+  font-size: 24px;
+}
+
+.FmcSelect__Subheader {
+  margin: 0 0 64px;
+  font-size: 20px;
+}
+
+.FmcSelect__Selector {
+  display: flex;
+  justify-content: center;
+  margin: 0 -16px;
+}
+
+.FmcSelect__Button {
+  display: block;
+  flex: 1 1 auto;
+  max-width: 64px;
+  padding: 40px 32px;
+  margin: 0 16px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .25s ease-in-out;
+}
+
+.FmcSelect__Button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.Fmc {
+  display: none;
+  position: relative;
+  width: 740px;
+  height: 1104px;
+  margin: 0 auto;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+
+.Fmc__Mainframe,
+.Fmc__Electricity {
+  width: 100%;
+  height: 100%;
+}
+
+.Fmc__Electricity[state=off] {
+  display: none;
+}
+
+.Fmc__Background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/fmc_boeing-blau.png);
+  background-size: 100%;
+}
+
+span:empty::before {
+  content: " ";
+}
+
+#highlight {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px ;
+  grid-template-rows: 27px 27px 27px 27px 27px 27px 27px 26px 26px 26px 26px 26px 26px 30px;
+  column-gap: 0px;
+  row-gap: 0px;
+}
+.grid-item-line {
+  font-size: 30px;
+  text-align: center;
+  padding: 0px;
+}
+.grid-item-label {
+  font-size: 20px;
+  text-align: center;
+  vertical-align: bottom;
+  padding-top: 10px;
+}
+.grid-item-page {
+  font-size: 22px;
+  text-align: center;
+  vertical-align: bottom;
+  padding-top: 5px;
+}
+.grid-item-inout {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 4%;
+}
+.fmc-b737-main-display {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 30px;
+  color: white;
+}
+
+.white {
+  color: white;
+}
+
+.cyan {
+  color: #00FFFF;
+}
+
+.amber {
+  color: #ffbf00;
+}
+
+.green {
+  color: #1daa05;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.magenta {
+  color: #ff00ff;
+}
+
+.gray {
+  color: #808080;
+}
+
+.inverted {
+  color: white;
+  background: #808080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+fmc-b737-main-display::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.Button {
+  position: absolute;
+  cursor: pointer;
+}
+
+.Button--lsk {
+  width: 50px;
+  height: 35px;
+}
+
+.Button--nav {
+  width: 78px;
+  height: 55px;
+}
+
+.Button--brt {
+  width: 39px;
+  height: 45px;
+}
+
+.Button--numpad {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.Button--keypad {
+  width: 52px;
+  height: 52px;s
+}
+
+@media screen and (min-width: 500px) {
+  .FmcSelect__Header {
+    font-size: 48px;
+  }
+
+  .FmcSelect__Subheader {
+    font-size: 32px;
+  }
+}

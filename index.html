@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="assets/css/fmc.css">
+    <title>Boeing 737 FMC</title>
+  </head>
+
+  <body>
+    <div id="FmcSelect" class="FmcSelect">
+      <div class="FmcSelect__Content">
+        <h1 class="FmcSelect__Header">
+          Axis and Oh's<br>
+          PMDG 737NG CDU
+        </h1>
+        <h2 class="FmcSelect__Subheader">
+          Select CDU
+        </h2>
+        <div class="FmcSelect__Selector">
+          <span class="FmcSelect__Button" data-cduid="0">
+            &lt;<br>Left CDU
+          </span>
+          <span class="FmcSelect__Button" data-cduid="1">
+            &gt;<br>Right CDU
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="Fmc" class="Fmc">
+      <div id="Mainframe" class="Fmc__Mainframe fmc-b737-main-display" style="width:530px; height:410px; position:relative; left:104px; top:66px;">
+        <div id="Electricity" state="on" class="Fmc__Electricity grid-container" style="width:530px; height:390px; position:relative;"></div>
+      </div>
+
+      <img src="assets/images/yellow.png" id="execlight" style="width:100px; height:100px; position:absolute; left:550px; top:500px; visibility:hidden;">
+      <img src="assets/images/call.png" id="calllight" style="width:45px; height:95px; position:absolute; left:19px; top:730px; visibility:hidden;">
+      <img src="assets/images/fail.png" id="faillight" style="width:45px; height:95px; position:absolute; left:19px; top:830px; visibility:hidden;">
+      <img src="assets/images/msg.png" id="msglight" style="width:50px; height:100px; position:absolute; left:672px; top:730px; visibility:hidden;">
+      <img src="assets/images/ofst.png" id="ofstlight" style="width:50px; height:100px; position:absolute; left:675px; top:822px; visibility:hidden;">
+
+      <div class="Fmc__Background"></div>
+
+      <!-- LSK Left -->
+      <span class="Button Button--lsk" style="left:12px; top:119px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="53401"></span>
+      <span class="Button Button--lsk" style="left:12px; top:173px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="53501"></span>
+      <span class="Button Button--lsk" style="left:12px; top:227px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="53601"></span>
+      <span class="Button Button--lsk" style="left:12px; top:281px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="53701"></span>
+      <span class="Button Button--lsk" style="left:12px; top:334px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="53801"></span>
+      <span class="Button Button--lsk" style="left:12px; top:388px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="53901"></span>
+
+      <!-- LSK Right -->
+      <span class="Button Button--lsk" style="left:671px; top:119px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54001"></span>
+      <span class="Button Button--lsk" style="left:671px; top:173px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54101"></span>
+      <span class="Button Button--lsk" style="left:671px; top:227px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54201"></span>
+      <span class="Button Button--lsk" style="left:671px; top:281px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54301"></span>
+      <span class="Button Button--lsk" style="left:671px; top:334px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54401"></span>
+      <span class="Button Button--lsk" style="left:671px; top:388px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54501"></span>
+
+      <!-- Menu Buttons -->
+      <span class="Button Button--nav" style="left:80px; top:512px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54601"></span>
+      <span class="Button Button--nav" style="left:173px; top:512px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54701"></span>
+      <span class="Button Button--nav" style="left:266px; top:512px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54801"></span>
+      <span class="Button Button--nav" style="left:359px; top:512px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="54901"></span>
+      <span class="Button Button--nav" style="left:453px; top:512px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55001"></span>
+
+      <!-- Brightness -->
+      <span class="Button Button-brt" style="left:562px; top:510px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="60501"></span>
+      <span class="Button Button-brt" style="left:601px; top:510px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="60502"></span>
+
+      <!-- -->
+      <span class="Button Button--nav" style="left:80px; top:577px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55101"></span>
+      <span class="Button Button--nav" style="left:173px; top:577px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55201"></span>
+      <span class="Button Button--nav" style="left:266px; top:577px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55301"></span>
+      <span class="Button Button--nav" style="left:359px; top:577px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55401"></span>
+      <span class="Button Button--nav" style="left:453px; top:577px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55501"></span>
+      <span class="Button Button--nav" style="left:557px; top:577px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55601"></span>
+
+      <span class="Button Button--nav" style="left:80px; top:642px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55701"></span>
+      <span class="Button Button--nav" style="left:173px; top:642px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55801"></span>
+      <span class="Button Button--nav" style="left:80px; top:707px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="55901"></span>
+      <span class="Button Button--nav" style="left:173px; top:707px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56001"></span>
+
+      <span class="Button Button--numpad" style="left:86px; top:812px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56101"></span>
+      <span class="Button Button--numpad" style="left:156px; top:812px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56201"></span>
+      <span class="Button Button--numpad" style="left:226px; top:812px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56301"></span>
+      <span class="Button Button--numpad" style="left:86px; top:880px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56401"></span>
+      <span class="Button Button--numpad" style="left:156px; top:880px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56501"></span>
+      <span class="Button Button--numpad" style="left:226px; top:880px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56601"></span>
+      <span class="Button Button--numpad" style="left:86px; top:950px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56701"></span>
+      <span class="Button Button--numpad" style="left:156px; top:950px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56801"></span>
+      <span class="Button Button--numpad" style="left:226px; top:950px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="56901"></span>
+      <span class="Button Button--numpad" style="left:86px; top:1020px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57001"></span>
+      <span class="Button Button--numpad" style="left:156px; top:1020px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57101"></span>
+      <span class="Button Button--numpad" style="left:226px; top:1020px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57201"></span>
+
+      <span class="Button Button--keypad" style="left:312px; top:663px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57301"></span>
+      <span class="Button Button--keypad" style="left:383px; top:663px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57401"></span>
+      <span class="Button Button--keypad" style="left:455px; top:663px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57501"></span>
+      <span class="Button Button--keypad" style="left:530px; top:663px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57601"></span>
+      <span class="Button Button--keypad" style="left:602px; top:663px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57701"></span>
+      <span class="Button Button--keypad" style="left:312px; top:735px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57801"></span>
+      <span class="Button Button--keypad" style="left:383px; top:735px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="57901"></span>
+      <span class="Button Button--keypad" style="left:455px; top:735px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58001"></span>
+      <span class="Button Button--keypad" style="left:530px; top:735px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58101"></span>
+      <span class="Button Button--keypad" style="left:602px; top:735px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58201"></span>
+      <span class="Button Button--keypad" style="left:312px; top:807px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58301"></span>
+      <span class="Button Button--keypad" style="left:383px; top:807px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58401"></span>
+      <span class="Button Button--keypad" style="left:455px; top:807px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58501"></span>
+      <span class="Button Button--keypad" style="left:530px; top:807px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58601"></span>
+      <span class="Button Button--keypad" style="left:602px; top:807px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58701"></span>
+      <span class="Button Button--keypad" style="left:312px; top:879px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58801"></span>
+      <span class="Button Button--keypad" style="left:383px; top:879px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="58901"></span>
+      <span class="Button Button--keypad" style="left:455px; top:879px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59001"></span>
+      <span class="Button Button--keypad" style="left:530px; top:879px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59101"></span>
+      <span class="Button Button--keypad" style="left:602px; top:879px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59201"></span>
+      <span class="Button Button--keypad" style="left:312px; top:952px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59301"></span>
+      <span class="Button Button--keypad" style="left:383px; top:952px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59401"></span>
+      <span class="Button Button--keypad" style="left:455px; top:952px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59501"></span>
+      <span class="Button Button--keypad" style="left:530px; top:952px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59601"></span>
+      <span class="Button Button--keypad" style="left:602px; top:952px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59701"></span>
+      <span class="Button Button--keypad" style="left:312px; top:1023px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59801"></span>
+      <span class="Button Button--keypad" style="left:383px; top:1023px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="59901"></span>
+      <span class="Button Button--keypad" style="left:455px; top:1023px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="60001"></span>
+      <span class="Button Button--keypad" style="left:530px; top:1023px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="60101"></span>
+      <span class="Button Button--keypad" style="left:602px; top:1023px;" data-target="(>K:ROTOR_BRAKE)" data-eventid="60201"></span>
+    </div>
+
+    <!-- Notification layer -->
+    <div class="Notification">
+      <p class="Notification__Message"></p>
+    </div>
+
+    <script type="text/javascript" src="assets/js/fmc.js"></script>
+    <script type="text/javascript">
+      var fmc = new Fmc({
+        aaoUri: '<AAO_URL>',
+        cduId: 0
+      })
+    </script>
+  </body>
+</html>
