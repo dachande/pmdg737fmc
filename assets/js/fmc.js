@@ -9,7 +9,7 @@ class Fmc {
     this.aaoUri = opts.aaoUri
     this.cduId = opts.cduId || 0
     this.loopInterval = opts.loopInterval || 100
-    this.allowKeyboard = opts.allowKeyboard || 0
+    this.allowKeyboard = opts.allowKeyboard || false
 
     // Break script if AAO URI is not supplied
     if (typeof this.aaoUri === 'undefined') {
@@ -29,6 +29,86 @@ class Fmc {
       ofststate: 0,
       lastbright: 0,
       loopRunning: false
+    }
+
+    this._keymap = []
+    this._buttonmap = {
+      'lsk-1l':        { target: '(>K:ROTOR_BRAKE)', eventId: 53401 },
+      'lsk-2l':        { target: '(>K:ROTOR_BRAKE)', eventId: 53501 },
+      'lsk-3l':        { target: '(>K:ROTOR_BRAKE)', eventId: 53601 },
+      'lsk-4l':        { target: '(>K:ROTOR_BRAKE)', eventId: 53701 },
+      'lsk-5l':        { target: '(>K:ROTOR_BRAKE)', eventId: 53801 },
+      'lsk-6l':        { target: '(>K:ROTOR_BRAKE)', eventId: 53901 },
+
+      'lsk-1r':        { target: '(>K:ROTOR_BRAKE)', eventId: 54001 },
+      'lsk-2r':        { target: '(>K:ROTOR_BRAKE)', eventId: 54101 },
+      'lsk-3r':        { target: '(>K:ROTOR_BRAKE)', eventId: 54201 },
+      'lsk-4r':        { target: '(>K:ROTOR_BRAKE)', eventId: 54301 },
+      'lsk-5r':        { target: '(>K:ROTOR_BRAKE)', eventId: 54401 },
+      'lsk-6r':        { target: '(>K:ROTOR_BRAKE)', eventId: 54501 },
+
+      'init-ref':      { target: '(>K:ROTOR_BRAKE)', eventId: 54601 },
+      'rte':           { target: '(>K:ROTOR_BRAKE)', eventId: 54701 },
+      'clb':           { target: '(>K:ROTOR_BRAKE)', eventId: 54801 },
+      'crz':           { target: '(>K:ROTOR_BRAKE)', eventId: 54901 },
+      'des':           { target: '(>K:ROTOR_BRAKE)', eventId: 55001 },
+      'menu':          { target: '(>K:ROTOR_BRAKE)', eventId: 55101 },
+      'legs':          { target: '(>K:ROTOR_BRAKE)', eventId: 55201 },
+      'dep-arr':       { target: '(>K:ROTOR_BRAKE)', eventId: 55301 },
+      'hold':          { target: '(>K:ROTOR_BRAKE)', eventId: 55401 },
+      'prog':          { target: '(>K:ROTOR_BRAKE)', eventId: 55501 },
+      'exec':          { target: '(>K:ROTOR_BRAKE)', eventId: 55601 },
+      'n1-limit':      { target: '(>K:ROTOR_BRAKE)', eventId: 55701 },
+      'fix':           { target: '(>K:ROTOR_BRAKE)', eventId: 55801 },
+      'prev-page':     { target: '(>K:ROTOR_BRAKE)', eventId: 55901 },
+      'next-page':     { target: '(>K:ROTOR_BRAKE)', eventId: 56001 },
+
+      'brt-down':      { target: '(>K:ROTOR_BRAKE)', eventId: 60501 },
+      'brt-up':        { target: '(>K:ROTOR_BRAKE)', eventId: 60502 },
+
+      'numpad-1':      { target: '(>K:ROTOR_BRAKE)', eventId: 56101, key: '1' },
+      'numpad-2':      { target: '(>K:ROTOR_BRAKE)', eventId: 56201, key: '2' },
+      'numpad-3':      { target: '(>K:ROTOR_BRAKE)', eventId: 56301, key: '3' },
+      'numpad-4':      { target: '(>K:ROTOR_BRAKE)', eventId: 56401, key: '4' },
+      'numpad-5':      { target: '(>K:ROTOR_BRAKE)', eventId: 56501, key: '5' },
+      'numpad-6':      { target: '(>K:ROTOR_BRAKE)', eventId: 56601, key: '6' },
+      'numpad-7':      { target: '(>K:ROTOR_BRAKE)', eventId: 56701, key: '7' },
+      'numpad-8':      { target: '(>K:ROTOR_BRAKE)', eventId: 56801, key: '8' },
+      'numpad-9':      { target: '(>K:ROTOR_BRAKE)', eventId: 56901, key: '9' },
+      'numpad-dot':    { target: '(>K:ROTOR_BRAKE)', eventId: 57001, key: '.' },
+      'numpad-0':      { target: '(>K:ROTOR_BRAKE)', eventId: 57101, key: '0' },
+      'numpad-minus':  { target: '(>K:ROTOR_BRAKE)', eventId: 57201, key: '-' },
+
+      'keypad-a':      { target: '(>K:ROTOR_BRAKE)', eventId: 57301, key: 'a' },
+      'keypad-b':      { target: '(>K:ROTOR_BRAKE)', eventId: 57401, key: 'b' },
+      'keypad-c':      { target: '(>K:ROTOR_BRAKE)', eventId: 57501, key: 'c' },
+      'keypad-d':      { target: '(>K:ROTOR_BRAKE)', eventId: 57601, key: 'd' },
+      'keypad-e':      { target: '(>K:ROTOR_BRAKE)', eventId: 57701, key: 'e' },
+      'keypad-f':      { target: '(>K:ROTOR_BRAKE)', eventId: 57801, key: 'f' },
+      'keypad-g':      { target: '(>K:ROTOR_BRAKE)', eventId: 57901, key: 'g' },
+      'keypad-h':      { target: '(>K:ROTOR_BRAKE)', eventId: 58001, key: 'h' },
+      'keypad-i':      { target: '(>K:ROTOR_BRAKE)', eventId: 58101, key: 'i' },
+      'keypad-j':      { target: '(>K:ROTOR_BRAKE)', eventId: 58201, key: 'j' },
+      'keypad-k':      { target: '(>K:ROTOR_BRAKE)', eventId: 58301, key: 'k' },
+      'keypad-l':      { target: '(>K:ROTOR_BRAKE)', eventId: 58401, key: 'l' },
+      'keypad-m':      { target: '(>K:ROTOR_BRAKE)', eventId: 58501, key: 'm' },
+      'keypad-n':      { target: '(>K:ROTOR_BRAKE)', eventId: 58601, key: 'n' },
+      'keypad-o':      { target: '(>K:ROTOR_BRAKE)', eventId: 58701, key: 'o' },
+      'keypad-p':      { target: '(>K:ROTOR_BRAKE)', eventId: 58801, key: 'p' },
+      'keypad-q':      { target: '(>K:ROTOR_BRAKE)', eventId: 58901, key: 'q' },
+      'keypad-r':      { target: '(>K:ROTOR_BRAKE)', eventId: 59001, key: 'r' },
+      'keypad-s':      { target: '(>K:ROTOR_BRAKE)', eventId: 59101, key: 's' },
+      'keypad-t':      { target: '(>K:ROTOR_BRAKE)', eventId: 59201, key: 't' },
+      'keypad-u':      { target: '(>K:ROTOR_BRAKE)', eventId: 59301, key: 'u' },
+      'keypad-v':      { target: '(>K:ROTOR_BRAKE)', eventId: 59401, key: 'v' },
+      'keypad-w':      { target: '(>K:ROTOR_BRAKE)', eventId: 59501, key: 'w' },
+      'keypad-x':      { target: '(>K:ROTOR_BRAKE)', eventId: 59601, key: 'x' },
+      'keypad-y':      { target: '(>K:ROTOR_BRAKE)', eventId: 59701, key: 'y' },
+      'keypad-z':      { target: '(>K:ROTOR_BRAKE)', eventId: 59801, key: 'z' },
+      'keypad-space':  { target: '(>K:ROTOR_BRAKE)', eventId: 59901, key: ' ' },
+      'keypad-delete': { target: '(>K:ROTOR_BRAKE)', eventId: 60001, key: 'Delete' },
+      'keypad-slash':  { target: '(>K:ROTOR_BRAKE)', eventId: 60101, key: '/' },
+      'keypad-clear':  { target: '(>K:ROTOR_BRAKE)', eventId: 60201, key: 'Backspace' }
     }
 
     this._cdu = [
@@ -217,11 +297,25 @@ class Fmc {
 
     // Initialize pointer events on all buttons
     [].forEach.call(t._buttons, function (button) {
-      const eventTarget = button.dataset.target
-      const pushEventId = parseInt(button.dataset.eventid)
-      const releaseEventId = (pushEventId - 1) + 4
+      const key = button.dataset.key
+      const keyData = t._buttonmap[key]
+
+      // Skip button if not found in keymap
+      if (typeof keyData === 'undefined') {
+        return
+      }
+
+      const eventTarget = keyData.target
+      const pushEventId = keyData.eventId
+      const releaseEventId = (pushEventId) + 3
+
       button.addEventListener('pointerdown', function () { t.sendEvent(pushEventId, eventTarget) })
       button.addEventListener('pointerup', function () { t.sendEvent(releaseEventId, eventTarget) })
+
+      // Prefill keymap
+      if (typeof keyData.key !== 'undefined') {
+        t._keymap[keyData.key] = keyData
+      }
     });
 
     // Set click event on CDU select buttons on select screen
@@ -249,6 +343,18 @@ class Fmc {
     window.addEventListener('resize', function () {
       t.scaleBasedOnWindow(document.getElementById('Fmc'), 1, true)
     })
+
+    // Enable keyboard input
+    if (t.allowKeyboard === true) {
+      window.addEventListener('keydown', function (e) {
+        const key = e.key
+        const keyData = t._keymap[key]
+
+        if (typeof keyData !== 'undefined') {
+          t.sendEventRelease(keyData.eventId, keyData.target)
+        }
+      })
+    }
   }
 
   /**
