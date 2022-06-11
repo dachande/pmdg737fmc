@@ -42,3 +42,23 @@ If you have changed the WebAPI port in AAO make sure to use the correct port her
 8. Select the left or right CDU by clicking on the corresponding button
 
 When you want to load the CDU from a remote computer, "localhost" must be replaced with the actual IP Address of the computer where AAO is running.
+
+## Enable scratchpad keyboard input
+
+If you want to be able to use the keyboard to input data into the scratchpad, everything you need to do is set the ```allowKeyboard``` option to ```true``` on initialization. To do this just follow these simple steps:
+
+1. Open the index.html file with some text editor
+
+2. Modify the JavaScript code block on the bottom of the file to look like this:
+
+```
+<script type="text/javascript">
+  var fmc = new Fmc({
+    aaoUri: '<AAO_URL>',
+    cduId: 0,
+    allowKeyboard: true
+  })
+</script>
+```
+
+3. Save the file and reload the page in your browser. Keyboard input should now be possible.
