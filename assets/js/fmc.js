@@ -63,8 +63,8 @@ class Fmc {
       'prev-page':     { target: '(>K:ROTOR_BRAKE)', eventId: 55901 },
       'next-page':     { target: '(>K:ROTOR_BRAKE)', eventId: 56001 },
 
-      'brt-down':      { target: '(>K:ROTOR_BRAKE)', eventId: 60501 },
-      'brt-up':        { target: '(>K:ROTOR_BRAKE)', eventId: 60502 },
+      'brt-down':      { target: '(>K:ROTOR_BRAKE)', eventId: 60501, type: 'release' },
+      'brt-up':        { target: '(>K:ROTOR_BRAKE)', eventId: 60502, type: 'release' },
 
       'numpad-1':      { target: '(>K:ROTOR_BRAKE)', eventId: 56101, key: '1' },
       'numpad-2':      { target: '(>K:ROTOR_BRAKE)', eventId: 56201, key: '2' },
@@ -108,7 +108,7 @@ class Fmc {
       'keypad-space':  { target: '(>K:ROTOR_BRAKE)', eventId: 59901, key: ' ' },
       'keypad-delete': { target: '(>K:ROTOR_BRAKE)', eventId: 60001, key: 'Delete' },
       'keypad-slash':  { target: '(>K:ROTOR_BRAKE)', eventId: 60101, key: '/' },
-      'keypad-clear':  { target: '(>K:ROTOR_BRAKE)', eventId: 60201, key: 'Backspace' }
+      'keypad-clear':  { target: '(>K:ROTOR_BRAKE)', eventId: 60201, type: 'release', key: 'Backspace' }
     }
 
     this._cdu = [
@@ -309,8 +309,12 @@ class Fmc {
       const pushEventId = keyData.eventId
       const releaseEventId = (pushEventId) + 3
 
-      button.addEventListener('pointerdown', function () { t.sendEvent(pushEventId, eventTarget) })
-      button.addEventListener('pointerup', function () { t.sendEvent(releaseEventId, eventTarget) })
+      if (keyData.type === 'release') {
+        button.addEventListener('pointerdown', function () { t.sendEvent(pushEventId, eventTarget) })
+        button.addEventListener('pointerup', function () { t.sendEvent(releaseEventId, eventTarget) })
+      } else {
+        button.addEventListener('pointerdown', function () { t.sendEventRelease(pushEventId, eventTarget) })
+      }
 
       // Prefill keymap
       if (typeof keyData.key !== 'undefined') {
