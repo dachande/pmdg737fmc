@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 1.11
+
+* Add screen-only CDU without keypad (useful for home cockpit)
+* Minor screen optimizations
+
 ## Version 1.10
 
 * JavaScript code optimization

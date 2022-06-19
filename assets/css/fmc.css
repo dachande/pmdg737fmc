@@ -39,7 +39,7 @@ body {
   overflow: hidden;
 }
 
-.FmcSelect {
+.Selector {
   position: absolute;
   top: 0;
   right: 0;
@@ -51,7 +51,7 @@ body {
   color: #fff;
 }
 
-.FmcSelect::before {
+.Selector::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -59,33 +59,33 @@ body {
   background-color:rgba(0, 0, 0, 0.65);
 }
 
-.FmcSelect__Content {
+.Selector__Content {
   position: relative;
   padding: 32px;
 }
 
-.FmcSelect__Header,
-.FmcSelect__Subheader {
+.Selector__Header,
+.Selector__Subheader {
   text-align: center;
 }
 
-.FmcSelect__Header {
+.Selector__Header {
   margin: 0 0 120px;
   font-size: 24px;
 }
 
-.FmcSelect__Subheader {
+.Selector__Subheader {
   margin: 0 0 64px;
   font-size: 20px;
 }
 
-.FmcSelect__Selector {
+.Selector__Selector {
   display: flex;
   justify-content: center;
   margin: 0 -16px;
 }
 
-.FmcSelect__Button {
+.Selector__Button {
   display: block;
   flex: 1 1 auto;
   max-width: 64px;
@@ -98,12 +98,12 @@ body {
   transition: all .25s ease-in-out;
 }
 
-.FmcSelect__Button:hover {
+.Selector__Button:hover {
   background-color: #fff;
   color: #000;
 }
 
-.Fmc {
+.Fmc__Body {
   display: none;
   position: relative;
   width: 740px;
@@ -113,14 +113,29 @@ body {
   transform-origin: top left;
 }
 
-.Fmc__Mainframe,
-.Fmc__Electricity {
+.Fmc__Body--ScreenOnly {
   width: 100%;
   height: 100%;
 }
 
-.Fmc__Electricity[state=off] {
-  display: none;
+.Fmc__DisplayContainer {
+  position: relative;
+  top: 66px;
+  left: 102px;
+  width: 530px;
+  height: 405px;
+}
+
+.Fmc__Body--ScreenOnly .Fmc__DisplayContainer {
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+
+.Fmc__Display {
+  width: 100%;
+  height: 100%;
 }
 
 .Fmc__Background {
@@ -145,18 +160,20 @@ span:empty::before {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px ;
-  grid-template-rows: 27px 27px 27px 27px 27px 27px 27px 26px 26px 26px 26px 26px 26px 30px;
+  grid-template-columns: repeat(24, 22px);
+  grid-template-rows: repeat(14, 27px);
   column-gap: 0px;
   row-gap: 0px;
 }
 .grid-item-line {
   font-size: 30px;
+  line-height: 34px;
   text-align: center;
   padding: 0px;
 }
 .grid-item-label {
   font-size: 20px;
+  line-height: 24px;
   text-align: center;
   vertical-align: bottom;
   padding-top: 10px;
@@ -264,11 +281,11 @@ fmc-b737-main-display::before {
 }
 
 @media screen and (min-width: 500px) {
-  .FmcSelect__Header {
+  .Selector__Header {
     font-size: 48px;
   }
 
-  .FmcSelect__Subheader {
+  .Selector__Subheader {
     font-size: 32px;
   }
 }

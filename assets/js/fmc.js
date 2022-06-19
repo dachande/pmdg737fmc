@@ -17,8 +17,11 @@ class Fmc {
       return
     }
 
-    this._selectorButtons = document.getElementsByClassName('FmcSelect__Button')
+    this._selectorButtons = document.getElementsByClassName('Selector__Button')
     this._buttons = document.getElementsByClassName('Button')
+    this._fmc = document.getElementById('Fmc')
+    this._display = document.getElementById('Display')
+    this._displayContainer = document.getElementById('DisplayContainer')
 
     this._states = {
       lasthash: '',
@@ -126,9 +129,7 @@ class Fmc {
 
     this._mainRequestObj = {}
 
-    this.initializeEvents()
-    // this.setCdu(this.cduId)
-    // this.startMainLoop()
+    this.initialize()
   }
 
   /**
@@ -290,9 +291,9 @@ class Fmc {
   }
 
   /**
-   * Initialize events
+   * Initialize logic
    */
-  initializeEvents () {
+  initialize () {
     var t = this;
 
     // Initialize pointer events on all buttons
@@ -332,20 +333,28 @@ class Fmc {
           t.startMainLoop()
         }
 
-        document.getElementById('FmcSelect').style.display = 'none'
-        document.getElementById('Fmc').style.display = 'block'
-        t.scaleBasedOnWindow(document.getElementById('Fmc'), 1, true)
+        document.getElementById('Selector').style.display = 'none'
+        t._fmc.style.display = 'block'
+        if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
+          t.scaleBasedOnWindow(t._displayContainer, 1, true)
+        } else {
+          t.scaleBasedOnWindow(t._fmc, 1, true)
+        }
       })
     })
 
     // Prevent long press from opening context menu to allow long press of CDU buttons
-    document.getElementById('Fmc').addEventListener('contextmenu', function (e) {
+    t._fmc.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
     // Rescale CDU on resize
     window.addEventListener('resize', function () {
-      t.scaleBasedOnWindow(document.getElementById('Fmc'), 1, true)
+      if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
+        t.scaleBasedOnWindow(t._displayContainer, 1, true)
+      } else {
+        t.scaleBasedOnWindow(t._fmc, 1, true)
+      }
     })
 
     // Enable keyboard input
@@ -381,14 +390,14 @@ class Fmc {
 
       if (this._states.lasthash !== hashstr) {
         var newInner = ''
-        for (var ri = 0; ri < 14; ri++) {
-          for (var ci = 0; ci < 24; ci++) {
-            var i = (ri * 3) + (ci * 14 * 3)
-            var chrval = newdata.charAt(i++)
-            var color = parseInt(newdata.charAt(i++))
-            var format = parseInt(newdata.charAt(i++))
+        for (var row = 0; row < 14; row++) {
+          for (var column = 0; column < 24; column++) {
+            var position = (row * 3) + (column * 14 * 3)
+            var chrval = newdata.charAt(position++)
+            var color = parseInt(newdata.charAt(position++))
+            var format = parseInt(newdata.charAt(position++))
 
-            if (ri == 13) {
+            if (row == 13) {
               newInner += "<div class=\"grid-item-inout\">";
             } else {
               if (format == 1) {
@@ -404,7 +413,7 @@ class Fmc {
           }
         }
 
-        document.getElementById("Electricity").innerHTML = newInner
+       this._display.innerHTML = newInner
         this._states.lasthash = hashstr
       }
     }
@@ -461,7 +470,7 @@ class Fmc {
 
     if (commObj.getvars[5].value != this._states.lastbright) {
       this._states.lastbright = commObj.getvars[5].value
-      document.getElementById("Electricity").style.filter = "brightness(" + this._states.lastbright + ")"
+     this._display.style.filter = "brightness(" + this._states.lastbright + ")"
     }
   }
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
@@ -10,29 +10,30 @@
   </head>
 
   <body>
-    <div id="FmcSelect" class="FmcSelect">
-      <div class="FmcSelect__Content">
-        <h1 class="FmcSelect__Header">
+    <div class="Fmc">
+      <div id="Selector" class="Selector">
+        <div class="Selector__Content">
+          <h1 class="Selector__Header">
           Axis and Oh's<br>
           PMDG 737NG CDU
         </h1>
-        <h2 class="FmcSelect__Subheader">
+          <h2 class="Selector__Subheader">
           Select CDU
         </h2>
-        <div class="FmcSelect__Selector">
-          <span class="FmcSelect__Button" data-cduid="0">
+          <div class="Selector__Selector">
+            <span class="Selector__Button" data-cduid="0">
             &lt;<br>Left CDU
           </span>
-          <span class="FmcSelect__Button" data-cduid="1">
+            <span class="Selector__Button" data-cduid="1">
             &gt;<br>Right CDU
           </span>
         </div>
       </div>
     </div>
 
-    <div id="Fmc" class="Fmc">
-      <div id="Mainframe" class="Fmc__Mainframe fmc-b737-main-display" style="width:530px; height:410px; position:relative; left:104px; top:66px;">
-        <div id="Electricity" state="on" class="Fmc__Electricity grid-container" style="width:530px; height:390px; position:relative;"></div>
+      <div id="Fmc" class="Fmc__Body">
+        <div class="Fmc__DisplayContainer">
+          <div id="Display" class="Fmc__Display grid-container"></div>
       </div>
 
       <img src="assets/images/yellow.png" id="execlight" style="width:100px; height:100px; position:absolute; left:550px; top:500px; visibility:hidden;">
@@ -123,6 +124,7 @@
       <span class="Button Button--keypad" style="left:455px; top:1023px;" data-key="keypad-delete"></span>
       <span class="Button Button--keypad" style="left:530px; top:1023px;" data-key="keypad-slash"></span>
       <span class="Button Button--keypad" style="left:602px; top:1023px;" data-key="keypad-clear"></span>
+      </div>
     </div>
 
     <!-- Notification layer -->

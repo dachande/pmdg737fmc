@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="assets/css/fmc.css">
+    <title>Boeing 737 FMC</title>
+  </head>
+
+  <body>
+    <div class="Fmc">
+      <div id="Selector" class="Selector">
+        <div class="Selector__Content">
+          <h1 class="Selector__Header">
+            Axis and Oh's<br>
+            PMDG 737NG CDU
+          </h1>
+          <h2 class="Selector__Subheader">
+            Select CDU
+          </h2>
+          <div class="Selector__Selector">
+            <span class="Selector__Button" data-cduid="0">
+              &lt;<br>Left CDU
+            </span>
+            <span class="Selector__Button" data-cduid="1">
+              &gt;<br>Right CDU
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div id="Fmc" class="Fmc__Body Fmc__Body--ScreenOnly">
+        <div id="DisplayContainer" class="Fmc__DisplayContainer">
+          <div id="Display" class="Fmc__Display grid-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification layer -->
+    <div class="Notification">
+      <p class="Notification__Message"></p>
+    </div>
+
+    <script type="text/javascript" src="assets/js/fmc.js"></script>
+    <script type="text/javascript">
+      var fmc = new Fmc({
+        aaoUri: '<AAO_URL>',
+        cduId: 0
+      })
+    </script>
+  </body>
+</html>
