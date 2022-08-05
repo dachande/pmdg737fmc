@@ -13,7 +13,7 @@ class Fmc {
 
     // Break script if AAO URI is not supplied
     if (typeof this.aaoUri === 'undefined') {
-      console.log('Error: FMC logic initialized without supplying AxisAndOhs WebAPI URI.')
+      console.log('Error: FMC logic initialized without supplying Axis And Ohs WebAPI URI.')
       return
     }
 

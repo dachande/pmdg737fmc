@@ -73,4 +73,4 @@ If you want to be able to use the keyboard to input data into the scratchpad, ev
 
 ## Credits
 
-A huge shoutout and a big thank you to Lorby for his excellent software *Axis & Oh's* and for his initial version of this CDU add-on for the PMDG 737. Awesome work!
+A huge shoutout and a big thank you to Lorby for his excellent software *Axis And Ohs* and for his initial version of this CDU add-on for the PMDG 737. Awesome work!
