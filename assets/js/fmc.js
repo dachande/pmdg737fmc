@@ -17,6 +17,7 @@ class Fmc {
       return
     }
 
+    this._selector = document.getElementsByClassName('Selector')[0]
     this._selectorButtons = document.getElementsByClassName('Selector__Button')
     this._fmcButtons = document.getElementsByClassName('Fmc__Button')
     this._fmc = document.getElementsByClassName('Fmc')[0]
@@ -207,7 +208,7 @@ class Fmc {
       case 'ê':
         return "□"
       case 'ë':
-        return "▇"
+        return "█"
       case '¡':
         return "←"
       case '¢':
@@ -333,7 +334,7 @@ class Fmc {
           t.startMainLoop()
         }
 
-        document.getElementById('Selector').style.display = 'none'
+        t._selector.style.display = 'none'
         t._fmc.style.display = 'block'
         if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
           t.scaleBasedOnWindow(t._displayContainer, 1, true)
@@ -413,7 +414,8 @@ class Fmc {
           }
         }
 
-       this._display.innerHTML = newInner
+        console.log(newInner)
+        this._display.innerHTML = newInner
         this._states.lasthash = hashstr
       }
     }
