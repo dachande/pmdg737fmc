@@ -18,10 +18,10 @@ class Fmc {
     }
 
     this._selectorButtons = document.getElementsByClassName('Selector__Button')
-    this._buttons = document.getElementsByClassName('Button')
-    this._fmc = document.getElementById('Fmc')
-    this._display = document.getElementById('Display')
-    this._displayContainer = document.getElementById('DisplayContainer')
+    this._fmcButtons = document.getElementsByClassName('Fmc__Button')
+    this._fmc = document.getElementsByClassName('Fmc')[0]
+    this._display = document.getElementsByClassName('Fmc__Grid')[0]
+    // this._displayContainer = document.getElementById('DisplayContainer')
 
     this._states = {
       lasthash: '',
@@ -297,7 +297,7 @@ class Fmc {
     var t = this;
 
     // Initialize pointer events on all buttons
-    [].forEach.call(t._buttons, function (button) {
+    [].forEach.call(t._fmcButtons, function (button) {
       const key = button.dataset.key
       const keyData = t._buttonmap[key]
 

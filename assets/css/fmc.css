@@ -12,6 +12,16 @@
   font-style: normal;
 }
 
+* {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  touch-action: none;
+}
+
 body  {
   margin: 0;
   padding: 0;
@@ -22,6 +32,70 @@ body  {
   height: 100%;
   overflow: hidden;
   background-color: #000;
+}
+
+.Selector {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.Selector::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.65);
+}
+
+.Selector__Content {
+  position: relative;
+  padding: 32px;
+}
+
+.Selector__Header,
+.Selector__Subheader {
+  text-align: center;
+}
+
+.Selector__Header {
+  margin: 0 0 120px;
+  font-size: 24px;
+}
+
+.Selector__Subheader {
+  margin: 0 0 64px;
+  font-size: 20px;
+}
+
+.Selector__Selector {
+  display: flex;
+  justify-content: center;
+  margin: 0 -16px;
+}
+
+.Selector__Button {
+  display: block;
+  flex: 1 1 auto;
+  max-width: 64px;
+  padding: 40px 32px;
+  margin: 0 16px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .25s ease-in-out;
+}
+
+.Selector__Button:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .Fmc {
