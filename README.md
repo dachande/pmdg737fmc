@@ -1,4 +1,4 @@
-# Axis & Oh's Web CDU for the PMDG 737 Series (600/700) for MSFS
+# Axis & Oh's Web CDU for the PMDG 737 Series (600/700/800) for MSFS
 
 This mod is for the PMDG 737 series for MSFS. It might also work for the PMDG 737 NGX/NGXu/NG3 for P3D and FSX but it hasn't been tested and therefore is not supported.
 
