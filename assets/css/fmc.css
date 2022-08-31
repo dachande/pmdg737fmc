@@ -258,7 +258,7 @@ body  {
 .Fmc__Button--Num {
   width: 63px;
   height: 61px;
-  padding-top: 8px;
+  padding-top: 6px;
   background-image: url(../images/button-num.png);
   background-repeat: no-repeat;
   background-size: 100%;
