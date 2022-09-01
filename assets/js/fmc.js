@@ -473,7 +473,7 @@ class Fmc {
 
     if (commObj.getvars[5].value != this._states.lastbright) {
       this._states.lastbright = commObj.getvars[5].value
-     this._display.style.filter = "brightness(" + this._states.lastbright + ")"
+     this._display.style.opacity = this._states.lastbright
     }
   }
 
