@@ -242,6 +242,10 @@ body  {
   text-shadow: 0 -1px 6px rgb(68 0 0);
 }
 
+.Fmc__Screen .grid-item-inout .gray {
+  text-shadow: 0 -1px 6px rgba(78, 0, 11, .5 );
+}
+
 .Fmc__Screen .inverted {
   display: inline-block;
   width: 100%;
