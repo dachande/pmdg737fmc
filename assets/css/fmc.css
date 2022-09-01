@@ -249,6 +249,18 @@ body  {
   margin-top: 1px;
 }
 
+.Fmc__Button--Lsk {
+  width: 60px;
+  height: 42px;
+  background-image: url(../images/button-lsk.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Fmc__Button--Lsk:active {
+  margin-top: 0;
+}
+
 .Fmc__Button--Fn {
   width: 106px;
   height: 69px;
@@ -287,6 +299,20 @@ body  {
   border: 4px solid #fff;
   border-radius: 5px;
 }
+
+.Fmc__Button--Lsk1L { top: 178px; left: 34px; }
+.Fmc__Button--Lsk2L { top: 253px; left: 34px; }
+.Fmc__Button--Lsk3L { top: 328px; left: 34px; }
+.Fmc__Button--Lsk4L { top: 403px; left: 34px; }
+.Fmc__Button--Lsk5L { top: 478px; left: 34px; }
+.Fmc__Button--Lsk6L { top: 553px; left: 34px; }
+
+.Fmc__Button--Lsk1R { top: 178px; left: 944px; }
+.Fmc__Button--Lsk2R { top: 253px; left: 944px; }
+.Fmc__Button--Lsk3R { top: 328px; left: 944px; }
+.Fmc__Button--Lsk4R { top: 403px; left: 944px; }
+.Fmc__Button--Lsk5R { top: 478px; left: 944px; }
+.Fmc__Button--Lsk6R { top: 553px; left: 944px; }
 
 .Fmc__Button--InitRef  { top: 726px; left: 119px; }
 .Fmc__Button--Rte      { top: 726px; left: 249px; }
