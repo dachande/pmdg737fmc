@@ -199,6 +199,8 @@ class Fmc {
    */
   convertCharacter(char) {
     switch (char) {
+      case '0':
+        return "£"
       case '&':
         return "&amp;"
       case '<':
@@ -209,10 +211,6 @@ class Fmc {
         return "□"
       case 'ë':
         return "█"
-      case '¡':
-        return "←"
-      case '¢':
-        return "→"
       case ' ':
         return "&nbsp;"
       default:
