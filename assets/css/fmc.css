@@ -158,7 +158,7 @@ body  {
 }
 
 .Fmc__Screen span {
-  text-shadow: 0px -1px 6px rgba(255, 2, 2, .75);
+  text-shadow: 0px -1px 6px rgb(118 0 0);
 }
 
 .grid-container {
@@ -201,37 +201,40 @@ body  {
 
 .Fmc__Screen .white {
   color: rgba(254, 255, 243, .95);
-  /* text-shadow: 0px -1px 6px rgba(254, 255, 243, .6); */
 }
 
 .Fmc__Screen .cyan{
   color: rgba(0, 255, 255, .95);
-  /* text-shadow: 0px -1px 6px rgba(0, 255, 255, .6); */
 }
 
 .Fmc__Screen .amber {
   color: rgba(255, 191, 0, .95);
-  /* text-shadow: 0px -1px 6px rgba(255, 191, 0, .6); */
 }
 
 .Fmc__Screen .green {
   color: rgba(29, 170, 5, .95);
-  /* text-shadow: 0px -1px 6px rgba(29, 170, 5, .6); */
 }
 
 .Fmc__Screen .red {
   color: rgba(255, 0, 0, .95);
-  /* text-shadow: 0px -1px 6px rgba(255, 0, 0, .6); */
 }
 
 .Fmc__Screen .magenta {
   color: rgba(255, 0, 255, .95);
-  /* text-shadow: 0px -1px 6px rgba(255, 0, 255, .6); */
 }
 
 .Fmc__Screen .gray {
   color: rgba(128, 128, 128, .95);
-  /* text-shadow: 0px -1px 6px rgba(128, 128, 128, .6); */
+}
+
+.Fmc__Screen .inverted {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: #888;
+  color: rgba(254, 255, 243, .95);
+  text-shadow: none;
+  box-shadow: 0px -1px 6px rgba(56, 39, 0, .5);
 }
 
 .Fmc__Case {
