@@ -165,6 +165,7 @@ body  {
   padding: 17px 19px;
   box-sizing: border-box;
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 .Fmc__Screen span {
