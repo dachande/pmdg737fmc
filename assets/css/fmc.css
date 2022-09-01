@@ -12,6 +12,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "PMDG-B";
+  src: url("../fonts/PMDG_NG3_DU_B.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PMDG-C";
+  src: url("../fonts/PMDG_NG3_DU_C.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   -webkit-touch-callout:none;
   -webkit-user-select:none;
@@ -150,11 +164,7 @@ body  {
   left: 0;
   padding: 17px 19px;
   box-sizing: border-box;
-  font-family: 'Consolas';
   font-weight: 400;
-  font-size: 44px;
-  line-height: 37px;
-
 }
 
 .Fmc__Screen span {
@@ -170,15 +180,17 @@ body  {
 }
 
 .grid-item-line {
-  font-size: 42px;
-  line-height: 32px;
+  font-family: 'PMDG-C';
+  font-size: 56px;
+  line-height: 14px;
   text-align: center;
   padding: 0px;
 }
 
 .grid-item-label {
-  font-size: 28px;
-  line-height: 16px;
+  font-family: 'PMDG-B';
+  font-size: 30px;
+  line-height: 20px;
   text-align: center;
   vertical-align: bottom;
   padding-top: 10px;
@@ -192,6 +204,7 @@ body  {
 }
 
 .grid-item-inout {
+  font-family: 'PMDG-B';
   font-size: 42px;
   line-height: 32px;
   text-align: center;
