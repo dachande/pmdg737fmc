@@ -210,7 +210,7 @@ class Fmc {
       case 'ê':
         return "□"
       case 'ë':
-        return "█"
+        return "■"
       case ' ':
         return "&nbsp;"
       default:
