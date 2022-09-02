@@ -109,6 +109,11 @@ body  {
   transform-origin: top left;
 }
 
+.Fmc__Case {
+  position: absolute;
+  filter: drop-shadow(1px 2px 4px rgba(114, 65, 0, 0.75));
+}
+
 .Fmc__Display {
   position: absolute;
   width: 747px;
@@ -234,10 +239,6 @@ body  {
   color: rgba(254, 255, 243, .95);
   text-shadow: none;
   box-shadow: 0px -1px 6px rgba(56, 39, 0, .5);
-}
-
-.Fmc__Case {
-  position: absolute;
 }
 
 .Fmc__Buttons {
@@ -415,6 +416,17 @@ body  {
 .Fmc__Button--Clear {
   font-size: 32px;
 }
+
+.Fmc__Light {
+  position: absolute;
+  display: none;
+}
+
+.Fmc__Light--Execute { top: 782px; left: 781px; }
+.Fmc__Light--Call { top: 1046px; left: 54px; }
+.Fmc__Light--Fail { top: 1172px; left: 54px; }
+.Fmc__Light--Message { top: 1046px; left: 965px; }
+.Fmc__Light--Offset { top: 1172px; left: 965px; }
 
 @media screen and (min-width: 500px) {
   .Selector__Header {
