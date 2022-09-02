@@ -22,7 +22,6 @@ class Fmc {
     this._fmcButtons = document.getElementsByClassName('Fmc__Button')
     this._fmc = document.getElementsByClassName('Fmc')[0]
     this._display = document.getElementsByClassName('Fmc__Grid')[0]
-    // this._displayContainer = document.getElementById('DisplayContainer')
 
     this._states = {
       lasthash: '',
@@ -337,11 +336,7 @@ class Fmc {
 
         t._selector.style.display = 'none'
         t._fmc.style.display = 'block'
-        if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
-          t.scaleBasedOnWindow(t._displayContainer, 1, true)
-        } else {
-          t.scaleBasedOnWindow(t._fmc, 1, true)
-        }
+        t.scaleBasedOnWindow(t._fmc, 1, true)
       })
     })
 
@@ -352,11 +347,7 @@ class Fmc {
 
     // Rescale CDU on resize
     window.addEventListener('resize', function () {
-      if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
-        t.scaleBasedOnWindow(t._displayContainer, 1, true)
-      } else {
-        t.scaleBasedOnWindow(t._fmc, 1, true)
-      }
+      t.scaleBasedOnWindow(t._fmc, 1, true)
     })
 
     // Enable keyboard input
