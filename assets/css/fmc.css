@@ -6,8 +6,8 @@
 }
 
 @font-face {
-  font-family: "Vega SB";
-  src: url("../fonts/VegaSB-Medium.ttf") format("truetype");
+  font-family: "FMC-Buttons";
+  src: url("../fonts/FMC-Buttons-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -252,7 +252,7 @@ body  {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  font-family: 'Vega SB';
+  font-family: 'FMC-Buttons';
   text-align: center;
   text-transform: uppercase;
   color: #fff;
