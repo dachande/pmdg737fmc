@@ -129,6 +129,7 @@ class Fmc {
     ]
 
     this._mainRequestObj = {}
+    this._loop = null
 
     this.initialize()
   }
@@ -489,10 +490,22 @@ class Fmc {
    */
    startMainLoop () {
     var t = this
-    window.setInterval(function () {
+    t._loop = window.setInterval(function () {
       t.mainLoop()
     }, this.loopInterval)
     t._states.loopRunning = true
+  }
+
+  /**
+   * Stop the main loop
+   */
+  stopMainLoop () {
+    var t = this
+    if (t._loop !== null && t._states.loopRunning === true) {
+      window.clearInterval(t._loop)
+      t._loop = null
+      t._states.loopRunning = false
+    }
   }
 
   /**
