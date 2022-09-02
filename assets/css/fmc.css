@@ -6,8 +6,8 @@
 }
 
 @font-face {
-  font-family: "Vega SB";
-  src: url("../fonts/VegaSB-Medium.ttf") format("truetype");
+  font-family: "FMC-Buttons";
+  src: url("../fonts/FMC-Buttons-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -36,6 +36,12 @@
   touch-action: none;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 body  {
   margin: 0;
   padding: 0;
@@ -45,7 +51,6 @@ body  {
 .container {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   background-color: #000;
 }
 
@@ -123,6 +128,16 @@ body  {
   transform-origin: top left;
 }
 
+.Fmc--ScreenOnly {
+  width: 747px;
+  height: 567px;
+}
+
+.Fmc__Case {
+  position: absolute;
+  filter: drop-shadow(1px 2px 4px rgba(114, 65, 0, 0.75));
+}
+
 .Fmc__Display {
   position: absolute;
   width: 747px;
@@ -132,7 +147,12 @@ body  {
   overflow: hidden;
 }
 
-.Fmc__Display::before {
+.Fmc--ScreenOnly .Fmc__Display {
+  top: 0;
+  left: 0;
+}
+
+.Fmc__Display--Reflection::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -144,7 +164,7 @@ body  {
   background-size: cover;
 }
 
-.Fmc__Display--Scratched::after {
+.Fmc__Display--Scratches::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -249,10 +269,6 @@ body  {
   box-shadow: 0px -1px 6px rgba(56, 39, 0, .5);
 }
 
-.Fmc__Case {
-  position: absolute;
-}
-
 .Fmc__Buttons {
   position: relative;
 }
@@ -264,7 +280,7 @@ body  {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  font-family: 'Vega SB';
+  font-family: 'FMC-Buttons';
   text-align: center;
   text-transform: uppercase;
   color: #fff;
@@ -428,6 +444,17 @@ body  {
 .Fmc__Button--Clear {
   font-size: 32px;
 }
+
+.Fmc__Light {
+  position: absolute;
+  display: none;
+}
+
+.Fmc__Light--Execute { top: 782px; left: 781px; }
+.Fmc__Light--Call { top: 1046px; left: 54px; }
+.Fmc__Light--Fail { top: 1172px; left: 54px; }
+.Fmc__Light--Message { top: 1046px; left: 965px; }
+.Fmc__Light--Offset { top: 1172px; left: 965px; }
 
 @media screen and (min-width: 500px) {
   .Selector__Header {

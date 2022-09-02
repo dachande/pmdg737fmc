@@ -10,6 +10,8 @@ class Fmc {
     this.cduId = opts.cduId || 0
     this.loopInterval = opts.loopInterval || 100
     this.allowKeyboard = opts.allowKeyboard || false
+    this.showScratches = opts.showScratches || false
+    this.showReflection = opts.showReflection || false
 
     // Break script if AAO URI is not supplied
     if (typeof this.aaoUri === 'undefined') {
@@ -21,8 +23,8 @@ class Fmc {
     this._selectorButtons = document.getElementsByClassName('Selector__Button')
     this._fmcButtons = document.getElementsByClassName('Fmc__Button')
     this._fmc = document.getElementsByClassName('Fmc')[0]
+    this._fmcDisplay = document.getElementsByClassName('Fmc__Display')[0]
     this._display = document.getElementsByClassName('Fmc__Grid')[0]
-    // this._displayContainer = document.getElementById('DisplayContainer')
 
     this._states = {
       lasthash: '',
@@ -335,11 +337,7 @@ class Fmc {
 
         t._selector.style.display = 'none'
         t._fmc.style.display = 'block'
-        if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
-          t.scaleBasedOnWindow(t._displayContainer, 1, true)
-        } else {
-          t.scaleBasedOnWindow(t._fmc, 1, true)
-        }
+        t.scaleBasedOnWindow(t._fmc, 1, true)
       })
     })
 
@@ -350,11 +348,7 @@ class Fmc {
 
     // Rescale CDU on resize
     window.addEventListener('resize', function () {
-      if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
-        t.scaleBasedOnWindow(t._displayContainer, 1, true)
-      } else {
-        t.scaleBasedOnWindow(t._fmc, 1, true)
-      }
+      t.scaleBasedOnWindow(t._fmc, 1, true)
     })
 
     // Enable keyboard input
@@ -367,6 +361,16 @@ class Fmc {
           t.sendEventRelease(keyData.eventId, keyData.target)
         }
       })
+    }
+
+    // Add scratches to display
+    if (t.showScratches === true) {
+      t._fmcDisplay.classList.add('Fmc__Display--Scratches')
+    }
+
+    // Add reflection to display
+    if (t.showReflection === true) {
+      t._fmcDisplay.classList.add('Fmc__Display--Reflection')
     }
   }
 
@@ -423,9 +427,9 @@ class Fmc {
       this._states.execstate = commObj.getvars[0].value
 
       if (this._states.execstate == 0) {
-        document.getElementById("execlight").style.visibility = "hidden"
+        document.getElementById("execlight").style.display = "none"
       } else {
-        document.getElementById("execlight").style.visibility = "visible"
+        document.getElementById("execlight").style.display = "block"
       }
     }
 
@@ -433,9 +437,9 @@ class Fmc {
       this._states.callstate = commObj.getvars[1].value
 
       if (this._states.callstate == 0) {
-        document.getElementById("calllight").style.visibility = "hidden"
+        document.getElementById("calllight").style.display = "none"
       } else {
-        document.getElementById("calllight").style.visibility = "visible"
+        document.getElementById("calllight").style.display = "block"
       }
     }
 
@@ -443,9 +447,9 @@ class Fmc {
       this._states.failstate = commObj.getvars[2].value
 
       if (this._states.failstate == 0) {
-        document.getElementById("faillight").style.visibility = "hidden"
+        document.getElementById("faillight").style.display = "none"
       } else {
-        document.getElementById("faillight").style.visibility = "visible"
+        document.getElementById("faillight").style.display = "block"
       }
     }
 
@@ -453,9 +457,9 @@ class Fmc {
       this._states.msgstate = commObj.getvars[3].value
 
       if (this._states.msgstate == 0) {
-        document.getElementById("msglight").style.visibility = "hidden"
+        document.getElementById("msglight").style.display = "none"
       } else {
-        document.getElementById("msglight").style.visibility = "visible"
+        document.getElementById("msglight").style.display = "block"
       }
     }
 
@@ -463,9 +467,9 @@ class Fmc {
       this._states.ofststate = commObj.getvars[4].value
 
       if (this._states.ofststate == 0) {
-        document.getElementById("ofstlight").style.visibility = "hidden"
+        document.getElementById("ofstlight").style.display = "none"
       } else {
-        document.getElementById("ofstlight").style.visibility = "visible"
+        document.getElementById("ofstlight").style.display = "block"
       }
     }
 

@@ -32,17 +32,18 @@
       </div>
 
       <div class="Fmc">
-        <div class="Fmc__Display Fmc__Display--Scratched">
+        <div class="Fmc__Display Fmc__Display--Scratched Fmc__Display--Reflection">
           <div class="Fmc__Screen">
             <div class="Fmc__Grid Grid">
             </div>
           </div>
         </div>
-        <img src="assets/images/yellow.png" id="execlight" style="width:100px; height:100px; position:absolute; left:550px; top:500px; visibility:hidden;">
-        <img src="assets/images/call.png" id="calllight" style="width:45px; height:95px; position:absolute; left:19px; top:730px; visibility:hidden;">
-        <img src="assets/images/fail.png" id="faillight" style="width:45px; height:95px; position:absolute; left:19px; top:830px; visibility:hidden;">
-        <img src="assets/images/msg.png" id="msglight" style="width:50px; height:100px; position:absolute; left:672px; top:730px; visibility:hidden;">
-        <img src="assets/images/ofst.png" id="ofstlight" style="width:50px; height:100px; position:absolute; left:675px; top:822px; visibility:hidden;">
+
+        <img src="assets/images/light-execute.png" id="execlight" class="Fmc__Light Fmc__Light--Execute" />
+        <img src="assets/images/light-call.png" id="calllight" class="Fmc__Light Fmc__Light--Call" />
+        <img src="assets/images/light-fail.png" id="faillight" class="Fmc__Light Fmc__Light--Fail" />
+        <img src="assets/images/light-message.png" id="msglight" class="Fmc__Light Fmc__Light--Message" />
+        <img src="assets/images/light-offset.png" id="ofstlight" class="Fmc__Light Fmc__Light--Offset" />
 
         <img class="Fmc__Case" src="assets/images/case.png" />
 
@@ -128,7 +129,9 @@
       var fmc = new Fmc({
         aaoUri: '<AAO_URL>',
         cduId: 0,
-        allowKeyboard: false
+        allowKeyboard: true,
+        showScratches: true,
+        showReflection: true
       })
     </script>
   </body>
