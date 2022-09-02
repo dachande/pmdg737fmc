@@ -164,6 +164,7 @@ body  {
   left: 0;
   padding: 17px 19px;
   box-sizing: border-box;
+  font-family: 'PMDG-C';
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -172,7 +173,7 @@ body  {
   text-shadow: 0px -1px 6px rgb(118 0 0);
 }
 
-.grid-container {
+.Grid {
   display: grid;
   grid-template-columns: repeat(24, 29.5px);
   grid-template-rows: repeat(14, 36px);
@@ -180,37 +181,29 @@ body  {
   row-gap: 1px;
 }
 
-.grid-item-line {
-  font-family: 'PMDG-C';
-  font-size: 56px;
-  line-height: 22px;
+.Grid__Item {
+  padding: 0;
   text-align: center;
-  padding: 0px;
 }
 
-.grid-item-label {
+.Grid__Item--line {
+  font-size: 56px;
+  line-height: 22px;
+}
+
+.Grid__Item--Label {
+  padding-top: 10px;
+  vertical-align: bottom;
   font-family: 'PMDG-B';
   font-size: 30px;
   line-height: 20px;
-  text-align: center;
-  vertical-align: bottom;
-  padding-top: 10px;
 }
 
-.grid-item-page {
-  font-size: 22px;
-  text-align: center;
-  vertical-align: bottom;
-  padding-top: 5px;
-}
-
-.grid-item-inout {
-  font-family: 'PMDG-C';
-  font-size: 56px;
-  line-height: 22px;
-  text-align: center;
+.Grid__Item--Scratchpad {
   padding-top: 10px;
   padding-left: 4%;
+  font-size: 56px;
+  line-height: 22px;
 }
 
 .Fmc__Screen .white {
