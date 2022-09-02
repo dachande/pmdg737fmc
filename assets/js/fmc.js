@@ -10,6 +10,8 @@ class Fmc {
     this.cduId = opts.cduId || 0
     this.loopInterval = opts.loopInterval || 100
     this.allowKeyboard = opts.allowKeyboard || false
+    this.showScratches = opts.showScratches || false
+    this.showReflection = opts.showReflection || false
 
     // Break script if AAO URI is not supplied
     if (typeof this.aaoUri === 'undefined') {
@@ -21,6 +23,7 @@ class Fmc {
     this._selectorButtons = document.getElementsByClassName('Selector__Button')
     this._fmcButtons = document.getElementsByClassName('Fmc__Button')
     this._fmc = document.getElementsByClassName('Fmc')[0]
+    this._fmcDisplay = document.getElementsByClassName('Fmc__Display')[0]
     this._display = document.getElementsByClassName('Fmc__Grid')[0]
 
     this._states = {
@@ -360,6 +363,16 @@ class Fmc {
           t.sendEventRelease(keyData.eventId, keyData.target)
         }
       })
+    }
+
+    // Add scratches to display
+    if (t.showScratches === true) {
+      t._fmcDisplay.classList.add('Fmc__Display--Scratches')
+    }
+
+    // Add reflection to display
+    if (t.showReflection === true) {
+      t._fmcDisplay.classList.add('Fmc__Display--Reflection')
     }
   }
 
