@@ -163,7 +163,7 @@ body  {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(24, auto);
+  grid-template-columns: repeat(24, 29.5px);
   grid-template-rows: repeat(14, 36px);
   column-gap: 0px;
   row-gap: 1px;
@@ -171,7 +171,7 @@ body  {
 
 .grid-item-line {
   font-size: 42px;
-  line-height: 32px;
+  line-height: 40px;
   text-align: center;
   padding: 0px;
 }
@@ -181,7 +181,7 @@ body  {
   line-height: 16px;
   text-align: center;
   vertical-align: bottom;
-  padding-top: 10px;
+  padding-top: 16px;
 }
 
 .grid-item-page {
@@ -193,7 +193,7 @@ body  {
 
 .grid-item-inout {
   font-size: 42px;
-  line-height: 32px;
+  line-height: 40px;
   text-align: center;
   padding-top: 10px;
   padding-left: 4%;
@@ -212,7 +212,7 @@ body  {
 }
 
 .Fmc__Screen .green {
-  color: rgba(29, 170, 5, .95);
+  color: rgba(53, 239, 22, .95)
 }
 
 .Fmc__Screen .red {
@@ -225,6 +225,7 @@ body  {
 
 .Fmc__Screen .gray {
   color: rgba(128, 128, 128, .95);
+  text-shadow: 0 -1px 6px rgb(68 0 0);
 }
 
 .Fmc__Screen .inverted {
