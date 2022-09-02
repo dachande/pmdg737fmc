@@ -400,12 +400,12 @@ class Fmc {
             var format = parseInt(newdata.charAt(position++))
 
             if (row == 13) {
-              newInner += "<div class=\"grid-item-inout\">";
+              newInner += "<div class=\"Grid__Item Grid__Item--Scratchpad\">";
             } else {
               if (format == 1) {
-                newInner += "<div class=\"grid-item-label\">";
+                newInner += "<div class=\"Grid__Item Grid__Item--Label\">";
               } else {
-                newInner += "<div class=\"grid-item-line\">";
+                newInner += "<div class=\"Grid__Item Grid__Item--Line\">";
               }
             }
 

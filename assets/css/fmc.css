@@ -155,14 +155,13 @@ body  {
   font-size: 44px;
   line-height: 37px;
   text-transform: uppercase;
-
 }
 
 .Fmc__Screen span {
   text-shadow: 0px -1px 6px rgb(118 0 0);
 }
 
-.grid-container {
+.Grid {
   display: grid;
   grid-template-columns: repeat(24, 29.5px);
   grid-template-rows: repeat(14, 36px);
@@ -170,34 +169,28 @@ body  {
   row-gap: 1px;
 }
 
-.grid-item-line {
-  font-size: 42px;
-  line-height: 40px;
+.Grid__Item {
+  padding: 0;
   text-align: center;
-  padding: 0px;
 }
 
-.grid-item-label {
+.Grid__Item--Line {
+  font-size: 42px;
+  line-height: 40px;
+}
+
+.Grid__Item--Label {
+  padding-top: 16px;
+  vertical-align: bottom;
   font-size: 28px;
   line-height: 16px;
-  text-align: center;
-  vertical-align: bottom;
-  padding-top: 16px;
 }
 
-.grid-item-page {
-  font-size: 22px;
-  text-align: center;
-  vertical-align: bottom;
-  padding-top: 5px;
-}
-
-.grid-item-inout {
-  font-size: 42px;
-  line-height: 40px;
-  text-align: center;
+.Grid__Item--Scratchpad {
   padding-top: 10px;
   padding-left: 4%;
+  font-size: 42px;
+  line-height: 40px;
 }
 
 .Fmc__Screen .white {
