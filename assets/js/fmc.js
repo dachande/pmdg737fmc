@@ -215,6 +215,10 @@ class Fmc {
         return "□"
       case 'ë':
         return "■"
+      case '¡':
+        return (this.usePMDGFont === true) ? char : "←"
+      case '¢':
+        return (this.usePMDGFont === true) ? char : "→"
       case ' ':
         return "&nbsp;"
       default:
