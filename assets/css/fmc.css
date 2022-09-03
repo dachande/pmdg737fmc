@@ -212,7 +212,7 @@ body  {
 
 .Grid__Item--Line {
   font-size: 42px;
-  line-height: 40px;
+  line-height: 34px;
 }
 
 .Fmc--PMDG .Grid__Item--Line {
@@ -222,7 +222,6 @@ body  {
 
 .Grid__Item--Label {
   padding-top: 16px;
-  vertical-align: bottom;
   font-size: 28px;
   line-height: 16px;
 }
@@ -236,7 +235,6 @@ body  {
 
 .Grid__Item--Scratchpad {
   padding-top: 10px;
-  padding-left: 4%;
   font-size: 42px;
   line-height: 40px;
 }
@@ -275,7 +273,7 @@ body  {
   text-shadow: 0 -1px 6px rgb(68 0 0);
 }
 
-.Fmc__Screen .grid-item-inout .gray {
+.Fmc__Screen .Grid__Item--Scratchpad .gray {
   text-shadow: 0 -1px 6px rgba(78, 0, 11, .5 );
 }
 
