@@ -12,6 +12,7 @@ class Fmc {
     this.allowKeyboard = opts.allowKeyboard || false
     this.showScratches = opts.showScratches || false
     this.showReflection = opts.showReflection || false
+    this.usePMDGFont = opts.usePMDGFont || false
 
     // Break script if AAO URI is not supplied
     if (typeof this.aaoUri === 'undefined') {
@@ -202,6 +203,8 @@ class Fmc {
    */
   convertCharacter(char) {
     switch (char) {
+      case '0':
+        return (this.usePMDGFont === true) ? "£" : char
       case '&':
         return "&amp;"
       case '<':
@@ -213,9 +216,9 @@ class Fmc {
       case 'ë':
         return "■"
       case '¡':
-        return "←"
+        return (this.usePMDGFont === true) ? char : "←"
       case '¢':
-        return "→"
+        return (this.usePMDGFont === true) ? char : "→"
       case ' ':
         return "&nbsp;"
       default:
@@ -373,6 +376,11 @@ class Fmc {
     // Add reflection to display
     if (t.showReflection === true) {
       t._fmcDisplay.classList.add('Fmc__Display--Reflection')
+    }
+
+    // Use the PMDG font
+    if (t.usePMDGFont === true) {
+      t._fmc.classList.add('Fmc--PMDG')
     }
   }
 

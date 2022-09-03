@@ -12,6 +12,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "PMDG-B";
+  src: url("../fonts/PMDG_NG3_DU_B.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PMDG-C";
+  src: url("../fonts/PMDG_NG3_DU_C.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   -webkit-touch-callout:none;
   -webkit-user-select:none;
@@ -172,9 +186,11 @@ body  {
   box-sizing: border-box;
   font-family: 'Consolas';
   font-weight: 400;
-  font-size: 44px;
-  line-height: 37px;
   text-transform: uppercase;
+}
+
+.Fmc--PMDG .Fmc__Screen {
+  font-family: 'PMDG-C';
 }
 
 .Fmc__Screen span {
@@ -199,6 +215,11 @@ body  {
   line-height: 40px;
 }
 
+.Fmc--PMDG .Grid__Item--Line {
+  font-size: 56px;
+  line-height: 22px;
+}
+
 .Grid__Item--Label {
   padding-top: 16px;
   vertical-align: bottom;
@@ -206,11 +227,23 @@ body  {
   line-height: 16px;
 }
 
+.Fmc--PMDG .Grid__Item--Label {
+  padding-top: 10px;
+  font-family: 'PMDG-B';
+  font-size: 30px;
+  line-height: 20px;
+}
+
 .Grid__Item--Scratchpad {
   padding-top: 10px;
   padding-left: 4%;
   font-size: 42px;
   line-height: 40px;
+}
+
+.Fmc--PMDG .Grid__Item--Scratchpad {
+  font-size: 56px;
+  line-height: 22px;
 }
 
 .Fmc__Screen .white {
