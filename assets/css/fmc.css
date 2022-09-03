@@ -184,9 +184,13 @@ body  {
   left: 0;
   padding: 17px 19px;
   box-sizing: border-box;
-  font-family: 'PMDG-C';
+  font-family: 'Consolas';
   font-weight: 400;
   text-transform: uppercase;
+}
+
+.Fmc--PMDG .Fmc__Screen {
+  font-family: 'PMDG-C';
 }
 
 .Fmc__Screen span {
@@ -207,13 +211,24 @@ body  {
 }
 
 .Grid__Item--Line {
+  font-size: 42px;
+  line-height: 40px;
+}
+
+.Fmc--PMDG .Grid__Item--Line {
   font-size: 56px;
   line-height: 22px;
 }
 
 .Grid__Item--Label {
-  padding-top: 10px;
+  padding-top: 16px;
   vertical-align: bottom;
+  font-size: 28px;
+  line-height: 16px;
+}
+
+.FMC--PMDG .Grid__Item--Label {
+  padding-top: 10px;
   font-family: 'PMDG-B';
   font-size: 30px;
   line-height: 20px;
@@ -222,6 +237,11 @@ body  {
 .Grid__Item--Scratchpad {
   padding-top: 10px;
   padding-left: 4%;
+  font-size: 42px;
+  line-height: 40px;
+}
+
+.Fmc--PMDG .Grid__Item--Scratchpad {
   font-size: 56px;
   line-height: 22px;
 }
