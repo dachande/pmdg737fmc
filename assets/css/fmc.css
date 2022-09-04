@@ -322,6 +322,11 @@ body  {
   margin-top: 0;
 }
 
+.Fmc__Button--Brt {
+  width: 70px;
+  height: 70px;
+}
+
 .Fmc__Button--Fn {
   width: 106px;
   height: 69px;
@@ -374,6 +379,9 @@ body  {
 .Fmc__Button--Lsk4R { top: 403px; left: 944px; }
 .Fmc__Button--Lsk5R { top: 478px; left: 944px; }
 .Fmc__Button--Lsk6R { top: 553px; left: 944px; }
+
+.Fmc__Button--BrtDown { top: 717px; left: 828px; }
+.Fmc__Button--BrtUp   { top: 717px; left: 898px; }
 
 .Fmc__Button--InitRef  { top: 726px; left: 119px; }
 .Fmc__Button--Rte      { top: 726px; left: 249px; }
