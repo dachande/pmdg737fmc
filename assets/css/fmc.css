@@ -1,28 +1,28 @@
 @font-face {
-  font-family: "Consolas";
-  src: url("../fonts/consola.ttf") format("truetype");
-  font-weight: normal;
+  font-family: "Inconsolata";
+  src: url("../fonts/inconsolata-v31-latin-regular.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "FMC-Buttons";
   src: url("../fonts/FMC-Buttons-Medium.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "PMDG-B";
   src: url("../fonts/PMDG_NG3_DU_B.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "PMDG-C";
   src: url("../fonts/PMDG_NG3_DU_C.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -64,7 +64,7 @@ body  {
   background-image: url(../images/background.jpg);
   background-size: cover;
   background-position: center;
-  font-family: 'Consolas';
+  font-family: 'Inconsolata';
   color: #fff;
 }
 
@@ -106,11 +106,12 @@ body  {
   display: block;
   flex: 1 1 auto;
   max-width: 64px;
-  padding: 40px 32px;
+  padding: 32px;
   margin: 0 16px;
   border: 1px solid #fff;
   border-radius: 8px;
   text-align: center;
+  line-height: 20px;
   cursor: pointer;
   transition: all .25s ease-in-out;
 }
@@ -185,7 +186,7 @@ body  {
   left: 0;
   padding: 17px 19px;
   box-sizing: border-box;
-  font-family: 'Consolas';
+  font-family: 'Inconsolata';
   font-weight: 400;
   text-transform: uppercase;
 }
