@@ -303,7 +303,9 @@ class Fmc {
   initialize () {
     var t = this;
 
+    //
     // Initialize pointer events on all buttons
+    //
     [].forEach.call(t._fmcButtons, function (button) {
       const key = button.dataset.key
       const keyData = t._buttonmap[key]
@@ -330,7 +332,9 @@ class Fmc {
       }
     });
 
+    //
     // Set click event on CDU select buttons on select screen
+    //
     [].forEach.call(t._selectorButtons, function (button) {
       const cduId = button.dataset.cduid
       button.addEventListener('click', function () {
@@ -346,17 +350,23 @@ class Fmc {
       })
     })
 
+    //
     // Prevent long press from opening context menu to allow long press of CDU buttons
+    //
     t._fmc.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
+    //
     // Rescale CDU on resize
+    //
     window.addEventListener('resize', function () {
       t.scaleBasedOnWindow(t._fmc, 1, true)
     })
 
-    // Enable keyboard input
+    //
+    // Allow keyboard input
+    //
     if (t.allowKeyboard === true) {
       window.addEventListener('keydown', function (e) {
         const key = e.key
@@ -368,20 +378,62 @@ class Fmc {
       })
     }
 
+    //
     // Add scratches to display
+    //
     if (t.showScratches === true) {
       t._fmcDisplay.classList.add('Fmc__Display--Scratches')
     }
 
+    //
     // Add reflection to display
+    //
     if (t.showReflection === true) {
       t._fmcDisplay.classList.add('Fmc__Display--Reflection')
     }
 
+    //
     // Use the PMDG font
+    //
     if (t.usePMDGFont === true) {
       t._fmc.classList.add('Fmc--PMDG')
     }
+
+    //
+    // Prevent zoom on mobile devices when double-tapping
+    //
+    let drags = new Set() //set of all active drags
+    document.addEventListener("touchmove", function (event) {
+      if (!event.isTrusted) {
+        // don't react to fake touches
+        return
+      }
+      Array.from(event.changedTouches).forEach(function (touch) {
+        drags.add(touch.identifier)
+      })
+    })
+    document.addEventListener("touchend", function(event){
+      if (!event.isTrusted) return
+      let isDrag = false
+      Array.from(event.changedTouches).forEach(function (touch) {
+        if (drags.has(touch.identifier)) {
+          isDrag = true
+        }
+        //touch ended, so delete it
+        drags.delete(touch.identifier)
+      })
+
+      //note that double-tap only happens when the body is active
+      if (!isDrag && document.activeElement == document.body) {
+        event.preventDefault() //don't zoom
+        event.stopPropagation() //don't relay event
+        event.target.focus() //in case it's an input element
+        event.target.click() //in case it has a click handler
+
+        //dispatch a copy of this event (for other touch handlers)
+        event.target.dispatchEvent(new TouchEvent("touchend",event))
+      }
+    })
   }
 
   /**
@@ -489,6 +541,9 @@ class Fmc {
     }
   }
 
+  /**
+   * Scale element to fit screen
+   */
   scaleBasedOnWindow (element, scale = 1, fit = false) {
     if (!fit) {
       element.style.transform = 'scale(' + scale / Math.min(element.clientWidth / window.innerWidth, element.clientHeight / window.innerHeight) + ')'
@@ -521,8 +576,7 @@ class Fmc {
   }
 
   /**
-   * Main loop sending periodic update requests
-   * to AAO
+   * Main loop sending periodic update requests to AAO
    */
   mainLoop () {
     var t = this

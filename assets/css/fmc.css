@@ -46,6 +46,7 @@ body  {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  touch-action: manipulation;
 }
 
 .container {
@@ -304,6 +305,7 @@ body  {
   color: #fff;
   box-sizing: border-box;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .Fmc__Button:active {
