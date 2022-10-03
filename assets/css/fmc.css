@@ -64,7 +64,8 @@ body  {
   background-image: url(../images/background.jpg);
   background-size: cover;
   background-position: center;
-  font-family: 'Inconsolata';
+  font-family: 'PMDG-B', 'Inconsolata', Arial, sans-serif;
+  font-size: 20px;
   color: #fff;
 }
 
@@ -83,17 +84,19 @@ body  {
 
 .Selector__Header,
 .Selector__Subheader {
+  font-weight: 400;
   text-align: center;
 }
 
 .Selector__Header {
   margin: 0 0 120px;
-  font-size: 24px;
+  font-size: 36px;
+
 }
 
 .Selector__Subheader {
   margin: 0 0 64px;
-  font-size: 20px;
+  font-size: 32px;
 }
 
 .Selector__Selector {
@@ -487,10 +490,10 @@ body  {
 
 @media screen and (min-width: 500px) {
   .Selector__Header {
-    font-size: 48px;
+    font-size: 58px;
   }
 
   .Selector__Subheader {
-    font-size: 32px;
+    font-size: 42px;
   }
 }
