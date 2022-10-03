@@ -10,126 +10,121 @@
   </head>
 
   <body>
-    <div class="Fmc">
-      <div id="Selector" class="Selector">
+    <div class="container">
+      <div class="Selector">
         <div class="Selector__Content">
           <h1 class="Selector__Header">
-          Axis And Ohs<br>
-          PMDG 737 CDU
-        </h1>
+            Axis And Ohs<br>
+            PMDG 737NG CDU
+          </h1>
           <h2 class="Selector__Subheader">
-          Select CDU
-        </h2>
+            Select CDU
+          </h2>
           <div class="Selector__Selector">
             <span class="Selector__Button" data-cduid="0">
-            &lt;<br>Left CDU
-          </span>
+              &lt;<br>Left CDU
+            </span>
             <span class="Selector__Button" data-cduid="1">
-            &gt;<br>Right CDU
-          </span>
+              &gt;<br>Right CDU
+            </span>
+          </div>
         </div>
       </div>
-    </div>
 
-      <div id="Fmc" class="Fmc__Body">
-        <div class="Fmc__DisplayContainer">
-          <div id="Display" class="Fmc__Display grid-container"></div>
+      <div class="Fmc">
+        <div class="Fmc__Display">
+          <div class="Fmc__Screen">
+            <div class="Fmc__Grid Grid">
+            </div>
+          </div>
+        </div>
+
+        <img src="assets/images/light-execute.png" id="execlight" class="Fmc__Light Fmc__Light--Execute" />
+        <img src="assets/images/light-call.png" id="calllight" class="Fmc__Light Fmc__Light--Call" />
+        <img src="assets/images/light-fail.png" id="faillight" class="Fmc__Light Fmc__Light--Fail" />
+        <img src="assets/images/light-message.png" id="msglight" class="Fmc__Light Fmc__Light--Message" />
+        <img src="assets/images/light-offset.png" id="ofstlight" class="Fmc__Light Fmc__Light--Offset" />
+
+        <img class="Fmc__Case" src="assets/images/case.png" />
+
+        <div class="Fmc__Buttons">
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk1L" data-key="lsk-1l"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk2L" data-key="lsk-2l"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk3L" data-key="lsk-3l"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk4L" data-key="lsk-4l"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk5L" data-key="lsk-5l"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk6L" data-key="lsk-6l"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk1R" data-key="lsk-1r"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk2R" data-key="lsk-2r"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk3R" data-key="lsk-3r"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk4R" data-key="lsk-4r"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk5R" data-key="lsk-5r"></span>
+          <span class="Fmc__Button Fmc__Button--Lsk Fmc__Button--Lsk6R" data-key="lsk-6r"></span>
+
+          <span class="Fmc__Button Fmc__Button--Brt Fmc__Button--BrtDown" data-key="brt-down"></span>
+          <span class="Fmc__Button Fmc__Button--Brt Fmc__Button--BrtUp" data-key="brt-up"></span>
+
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--InitRef" data-key="init-ref"><span>Init<br>Ref</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Rte" data-key="rte"><span>Rte</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Clb" data-key="clb"><span>Clb</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Crz" data-key="crz"><span>Crz</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Des" data-key="des"><span>Des</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Menu" data-key="menu"><span>Menu</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Legs" data-key="legs"><span>Legs</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--DepArr" data-key="dep-arr"><span>Dep<br>Arr</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Hold" data-key="hold"><span>Hold</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Prog" data-key="prog"><span>Prog</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Exec" data-key="exec"><span>Exec</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--N1Limit" data-key="n1-limit"><span>N1<br>Limit</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--Fix" data-key="fix"><span>Fix</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--PrevPage" data-key="prev-page"><span>Prev<br>Page</span></span>
+          <span class="Fmc__Button Fmc__Button--Fn Fmc__Button--NextPage" data-key="next-page"><span>Next<br>Page</span></span>
+
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--1" data-key="numpad-1"><span>1</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--2" data-key="numpad-2"><span>2</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--3" data-key="numpad-3"><span>3</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--4" data-key="numpad-4"><span>4</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--5" data-key="numpad-5"><span>5</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--6" data-key="numpad-6"><span>6</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--7" data-key="numpad-7"><span>7</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--8" data-key="numpad-8"><span>8</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--9" data-key="numpad-9"><span>9</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--Dot" data-key="numpad-dot"><span>.</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--0" data-key="numpad-0"><span>0</span></span>
+          <span class="Fmc__Button Fmc__Button--Num Fmc__Button--PlusMinus" data-key="numpad-minus"><span>/</span></span>
+
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--A" data-key="keypad-a"><span>A</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--B" data-key="keypad-b"><span>B</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--C" data-key="keypad-c"><span>C</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--D" data-key="keypad-d"><span>D</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--E Fmc__Button--Border" data-key="keypad-e"><span>E</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--F" data-key="keypad-f"><span>F</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--G" data-key="keypad-g"><span>G</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--H" data-key="keypad-h"><span>H</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--I" data-key="keypad-i"><span>I</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--J" data-key="keypad-j"><span>J</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--K" data-key="keypad-k"><span>K</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--L" data-key="keypad-l"><span>L</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--M" data-key="keypad-m"><span>M</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--N Fmc__Button--Border" data-key="keypad-n"><span>N</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--O" data-key="keypad-o"><span>O</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--P" data-key="keypad-p"><span>P</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--Q" data-key="keypad-q"><span>Q</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--R" data-key="keypad-r"><span>R</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--S Fmc__Button--Border" data-key="keypad-s"><span>S</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--T" data-key="keypad-t"><span>T</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--U" data-key="keypad-u"><span>U</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--V" data-key="keypad-v"><span>V</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--W Fmc__Button--Border" data-key="keypad-w"><span>W</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--X" data-key="keypad-x"><span>X</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--Y" data-key="keypad-y"><span>Y</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--Z" data-key="keypad-z"><span>Z</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--Space" data-key="keypad-space"><span>Sp</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--Delete" data-key="keypad-delete"><span>Del</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--Slash" data-key="keypad-slash"><span>/</span></span>
+          <span class="Fmc__Button Fmc__Button--Key Fmc__Button--Clear" data-key="keypad-clear"><span>  Clr</span></span>
+        </div>
       </div>
-
-      <img src="assets/images/yellow.png" id="execlight" style="width:100px; height:100px; position:absolute; left:550px; top:500px; visibility:hidden;">
-      <img src="assets/images/call.png" id="calllight" style="width:45px; height:95px; position:absolute; left:19px; top:730px; visibility:hidden;">
-      <img src="assets/images/fail.png" id="faillight" style="width:45px; height:95px; position:absolute; left:19px; top:830px; visibility:hidden;">
-      <img src="assets/images/msg.png" id="msglight" style="width:50px; height:100px; position:absolute; left:672px; top:730px; visibility:hidden;">
-      <img src="assets/images/ofst.png" id="ofstlight" style="width:50px; height:100px; position:absolute; left:675px; top:822px; visibility:hidden;">
-
-      <div class="Fmc__Background"></div>
-
-      <!-- LSK Left -->
-      <span class="Button Button--lsk" style="left:12px; top:119px;" data-key="lsk-1l"></span>
-      <span class="Button Button--lsk" style="left:12px; top:173px;" data-key="lsk-2l"></span>
-      <span class="Button Button--lsk" style="left:12px; top:227px;" data-key="lsk-3l"></span>
-      <span class="Button Button--lsk" style="left:12px; top:281px;" data-key="lsk-4l"></span>
-      <span class="Button Button--lsk" style="left:12px; top:334px;" data-key="lsk-5l"></span>
-      <span class="Button Button--lsk" style="left:12px; top:388px;" data-key="lsk-6l"></span>
-
-      <!-- LSK Right -->
-      <span class="Button Button--lsk" style="left:671px; top:119px;" data-key="lsk-1r"></span>
-      <span class="Button Button--lsk" style="left:671px; top:173px;" data-key="lsk-2r"></span>
-      <span class="Button Button--lsk" style="left:671px; top:227px;" data-key="lsk-3r"></span>
-      <span class="Button Button--lsk" style="left:671px; top:281px;" data-key="lsk-4r"></span>
-      <span class="Button Button--lsk" style="left:671px; top:334px;" data-key="lsk-5r"></span>
-      <span class="Button Button--lsk" style="left:671px; top:388px;" data-key="lsk-6r"></span>
-
-      <!-- Menu Buttons -->
-      <span class="Button Button--nav" style="left:80px; top:512px;" data-key="init-ref"></span>
-      <span class="Button Button--nav" style="left:173px; top:512px;" data-key="rte"></span>
-      <span class="Button Button--nav" style="left:266px; top:512px;" data-key="clb"></span>
-      <span class="Button Button--nav" style="left:359px; top:512px;" data-key="crz"></span>
-      <span class="Button Button--nav" style="left:453px; top:512px;" data-key="des"></span>
-      <span class="Button Button--nav" style="left:80px; top:577px;" data-key="menu"></span>
-      <span class="Button Button--nav" style="left:173px; top:577px;" data-key="legs"></span>
-      <span class="Button Button--nav" style="left:266px; top:577px;" data-key="dep-arr"></span>
-      <span class="Button Button--nav" style="left:359px; top:577px;" data-key="hold"></span>
-      <span class="Button Button--nav" style="left:453px; top:577px;" data-key="prog"></span>
-      <span class="Button Button--nav" style="left:557px; top:577px;" data-key="exec"></span>
-      <span class="Button Button--nav" style="left:80px; top:642px;" data-key="n1-limit"></span>
-      <span class="Button Button--nav" style="left:173px; top:642px;" data-key="fix"></span>
-      <span class="Button Button--nav" style="left:80px; top:707px;" data-key="prev-page"></span>
-      <span class="Button Button--nav" style="left:173px; top:707px;" data-key="next-page"></span>
-
-      <!-- Brightness -->
-      <span class="Button Button--brt" style="left:562px; top:510px;" data-key="brt-down"></span>
-      <span class="Button Button--brt" style="left:601px; top:510px;" data-key="brt-up"></span>
-
-      <span class="Button Button--numpad" style="left:86px; top:812px;" data-key="numpad-1"></span>
-      <span class="Button Button--numpad" style="left:156px; top:812px;" data-key="numpad-2"></span>
-      <span class="Button Button--numpad" style="left:226px; top:812px;" data-key="numpad-3"></span>
-      <span class="Button Button--numpad" style="left:86px; top:880px;" data-key="numpad-4"></span>
-      <span class="Button Button--numpad" style="left:156px; top:880px;" data-key="numpad-5"></span>
-      <span class="Button Button--numpad" style="left:226px; top:880px;" data-key="numpad-6"></span>
-      <span class="Button Button--numpad" style="left:86px; top:950px;" data-key="numpad-7"></span>
-      <span class="Button Button--numpad" style="left:156px; top:950px;" data-key="numpad-8"></span>
-      <span class="Button Button--numpad" style="left:226px; top:950px;" data-key="numpad-9"></span>
-      <span class="Button Button--numpad" style="left:86px; top:1020px;" data-key="numpad-dot"></span>
-      <span class="Button Button--numpad" style="left:156px; top:1020px;" data-key="numpad-0"></span>
-      <span class="Button Button--numpad" style="left:226px; top:1020px;" data-key="numpad-minus"></span>
-
-      <span class="Button Button--keypad" style="left:312px; top:663px;" data-key="keypad-a"></span>
-      <span class="Button Button--keypad" style="left:383px; top:663px;" data-key="keypad-b"></span>
-      <span class="Button Button--keypad" style="left:455px; top:663px;" data-key="keypad-c"></span>
-      <span class="Button Button--keypad" style="left:530px; top:663px;" data-key="keypad-d"></span>
-      <span class="Button Button--keypad" style="left:602px; top:663px;" data-key="keypad-e"></span>
-      <span class="Button Button--keypad" style="left:312px; top:735px;" data-key="keypad-f"></span>
-      <span class="Button Button--keypad" style="left:383px; top:735px;" data-key="keypad-g"></span>
-      <span class="Button Button--keypad" style="left:455px; top:735px;" data-key="keypad-h"></span>
-      <span class="Button Button--keypad" style="left:530px; top:735px;" data-key="keypad-i"></span>
-      <span class="Button Button--keypad" style="left:602px; top:735px;" data-key="keypad-j"></span>
-      <span class="Button Button--keypad" style="left:312px; top:807px;" data-key="keypad-k"></span>
-      <span class="Button Button--keypad" style="left:383px; top:807px;" data-key="keypad-l"></span>
-      <span class="Button Button--keypad" style="left:455px; top:807px;" data-key="keypad-m"></span>
-      <span class="Button Button--keypad" style="left:530px; top:807px;" data-key="keypad-n"></span>
-      <span class="Button Button--keypad" style="left:602px; top:807px;" data-key="keypad-o"></span>
-      <span class="Button Button--keypad" style="left:312px; top:879px;" data-key="keypad-p"></span>
-      <span class="Button Button--keypad" style="left:383px; top:879px;" data-key="keypad-q"></span>
-      <span class="Button Button--keypad" style="left:455px; top:879px;" data-key="keypad-r"></span>
-      <span class="Button Button--keypad" style="left:530px; top:879px;" data-key="keypad-s"></span>
-      <span class="Button Button--keypad" style="left:602px; top:879px;" data-key="keypad-t"></span>
-      <span class="Button Button--keypad" style="left:312px; top:952px;" data-key="keypad-u"></span>
-      <span class="Button Button--keypad" style="left:383px; top:952px;" data-key="keypad-v"></span>
-      <span class="Button Button--keypad" style="left:455px; top:952px;" data-key="keypad-w"></span>
-      <span class="Button Button--keypad" style="left:530px; top:952px;" data-key="keypad-x"></span>
-      <span class="Button Button--keypad" style="left:602px; top:952px;" data-key="keypad-y"></span>
-      <span class="Button Button--keypad" style="left:312px; top:1023px;" data-key="keypad-z"></span>
-      <span class="Button Button--keypad" style="left:383px; top:1023px;" data-key="keypad-space"></span>
-      <span class="Button Button--keypad" style="left:455px; top:1023px;" data-key="keypad-delete"></span>
-      <span class="Button Button--keypad" style="left:530px; top:1023px;" data-key="keypad-slash"></span>
-      <span class="Button Button--keypad" style="left:602px; top:1023px;" data-key="keypad-clear"></span>
-      </div>
-    </div>
-
-    <!-- Notification layer -->
-    <div class="Notification">
-      <p class="Notification__Message"></p>
     </div>
 
     <script type="text/javascript" src="assets/js/fmc.js"></script>
@@ -137,7 +132,10 @@
       var fmc = new Fmc({
         aaoUri: '<AAO_URL>',
         cduId: 0,
-        allowKeyboard: false
+        allowKeyboard: true,
+        showScratches: true,
+        showReflection: true,
+        usePMDGFont: true
       })
     </script>
   </body>

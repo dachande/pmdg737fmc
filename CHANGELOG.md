@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 1.20
+
+* Complete graphical rework of the CDU interface
+* Usage of the PMDG font for the CDU screen
+* Enable keyboard input by default
+* Prevent zoom on mobile devices when double-tapping
+* Add detailed documentation
+
 ## Version 1.11
 
 * Add screen-only CDU without keypad (useful for home cockpit)

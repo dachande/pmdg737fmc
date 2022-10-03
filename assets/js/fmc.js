@@ -10,6 +10,9 @@ class Fmc {
     this.cduId = opts.cduId || 0
     this.loopInterval = opts.loopInterval || 100
     this.allowKeyboard = opts.allowKeyboard || false
+    this.showScratches = opts.showScratches || false
+    this.showReflection = opts.showReflection || false
+    this.usePMDGFont = opts.usePMDGFont || false
 
     // Break script if AAO URI is not supplied
     if (typeof this.aaoUri === 'undefined') {
@@ -17,11 +20,12 @@ class Fmc {
       return
     }
 
+    this._selector = document.getElementsByClassName('Selector')[0]
     this._selectorButtons = document.getElementsByClassName('Selector__Button')
-    this._buttons = document.getElementsByClassName('Button')
-    this._fmc = document.getElementById('Fmc')
-    this._display = document.getElementById('Display')
-    this._displayContainer = document.getElementById('DisplayContainer')
+    this._fmcButtons = document.getElementsByClassName('Fmc__Button')
+    this._fmc = document.getElementsByClassName('Fmc')[0]
+    this._fmcDisplay = document.getElementsByClassName('Fmc__Display')[0]
+    this._display = document.getElementsByClassName('Fmc__Grid')[0]
 
     this._states = {
       lasthash: '',
@@ -128,6 +132,7 @@ class Fmc {
     ]
 
     this._mainRequestObj = {}
+    this._loop = null
 
     this.initialize()
   }
@@ -198,6 +203,8 @@ class Fmc {
    */
   convertCharacter(char) {
     switch (char) {
+      case '0':
+        return (this.usePMDGFont === true) ? "£" : char
       case '&':
         return "&amp;"
       case '<':
@@ -207,11 +214,11 @@ class Fmc {
       case 'ê':
         return "□"
       case 'ë':
-        return "▇"
+        return "■"
       case '¡':
-        return "←"
+        return (this.usePMDGFont === true) ? char : "←"
       case '¢':
-        return "→"
+        return (this.usePMDGFont === true) ? char : "→"
       case ' ':
         return "&nbsp;"
       default:
@@ -296,8 +303,10 @@ class Fmc {
   initialize () {
     var t = this;
 
+    //
     // Initialize pointer events on all buttons
-    [].forEach.call(t._buttons, function (button) {
+    //
+    [].forEach.call(t._fmcButtons, function (button) {
       const key = button.dataset.key
       const keyData = t._buttonmap[key]
 
@@ -323,7 +332,9 @@ class Fmc {
       }
     });
 
+    //
     // Set click event on CDU select buttons on select screen
+    //
     [].forEach.call(t._selectorButtons, function (button) {
       const cduId = button.dataset.cduid
       button.addEventListener('click', function () {
@@ -333,31 +344,29 @@ class Fmc {
           t.startMainLoop()
         }
 
-        document.getElementById('Selector').style.display = 'none'
+        t._selector.style.display = 'none'
         t._fmc.style.display = 'block'
-        if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
-          t.scaleBasedOnWindow(t._displayContainer, 1, true)
-        } else {
-          t.scaleBasedOnWindow(t._fmc, 1, true)
-        }
+        t.scaleBasedOnWindow(t._fmc, 1, true)
       })
     })
 
+    //
     // Prevent long press from opening context menu to allow long press of CDU buttons
+    //
     t._fmc.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
+    //
     // Rescale CDU on resize
+    //
     window.addEventListener('resize', function () {
-      if (t._fmc.classList.contains('Fmc__Body--ScreenOnly')) {
-        t.scaleBasedOnWindow(t._displayContainer, 1, true)
-      } else {
-        t.scaleBasedOnWindow(t._fmc, 1, true)
-      }
+      t.scaleBasedOnWindow(t._fmc, 1, true)
     })
 
-    // Enable keyboard input
+    //
+    // Allow keyboard input
+    //
     if (t.allowKeyboard === true) {
       window.addEventListener('keydown', function (e) {
         const key = e.key
@@ -368,6 +377,63 @@ class Fmc {
         }
       })
     }
+
+    //
+    // Add scratches to display
+    //
+    if (t.showScratches === true) {
+      t._fmcDisplay.classList.add('Fmc__Display--Scratches')
+    }
+
+    //
+    // Add reflection to display
+    //
+    if (t.showReflection === true) {
+      t._fmcDisplay.classList.add('Fmc__Display--Reflection')
+    }
+
+    //
+    // Use the PMDG font
+    //
+    if (t.usePMDGFont === true) {
+      t._fmc.classList.add('Fmc--PMDG')
+    }
+
+    //
+    // Prevent zoom on mobile devices when double-tapping
+    //
+    let drags = new Set() //set of all active drags
+    document.addEventListener("touchmove", function (event) {
+      if (!event.isTrusted) {
+        // don't react to fake touches
+        return
+      }
+      Array.from(event.changedTouches).forEach(function (touch) {
+        drags.add(touch.identifier)
+      })
+    })
+    document.addEventListener("touchend", function(event){
+      if (!event.isTrusted) return
+      let isDrag = false
+      Array.from(event.changedTouches).forEach(function (touch) {
+        if (drags.has(touch.identifier)) {
+          isDrag = true
+        }
+        //touch ended, so delete it
+        drags.delete(touch.identifier)
+      })
+
+      //note that double-tap only happens when the body is active
+      if (!isDrag && document.activeElement == document.body) {
+        event.preventDefault() //don't zoom
+        event.stopPropagation() //don't relay event
+        event.target.focus() //in case it's an input element
+        event.target.click() //in case it has a click handler
+
+        //dispatch a copy of this event (for other touch handlers)
+        event.target.dispatchEvent(new TouchEvent("touchend",event))
+      }
+    })
   }
 
   /**
@@ -398,12 +464,12 @@ class Fmc {
             var format = parseInt(newdata.charAt(position++))
 
             if (row == 13) {
-              newInner += "<div class=\"grid-item-inout\">";
+              newInner += "<div class=\"Grid__Item Grid__Item--Scratchpad\">";
             } else {
               if (format == 1) {
-                newInner += "<div class=\"grid-item-label\">";
+                newInner += "<div class=\"Grid__Item Grid__Item--Label\">";
               } else {
-                newInner += "<div class=\"grid-item-line\">";
+                newInner += "<div class=\"Grid__Item Grid__Item--Line\">";
               }
             }
 
@@ -413,7 +479,8 @@ class Fmc {
           }
         }
 
-       this._display.innerHTML = newInner
+        console.log(newInner)
+        this._display.innerHTML = newInner
         this._states.lasthash = hashstr
       }
     }
@@ -422,9 +489,9 @@ class Fmc {
       this._states.execstate = commObj.getvars[0].value
 
       if (this._states.execstate == 0) {
-        document.getElementById("execlight").style.visibility = "hidden"
+        document.getElementById("execlight").style.display = "none"
       } else {
-        document.getElementById("execlight").style.visibility = "visible"
+        document.getElementById("execlight").style.display = "block"
       }
     }
 
@@ -432,9 +499,9 @@ class Fmc {
       this._states.callstate = commObj.getvars[1].value
 
       if (this._states.callstate == 0) {
-        document.getElementById("calllight").style.visibility = "hidden"
+        document.getElementById("calllight").style.display = "none"
       } else {
-        document.getElementById("calllight").style.visibility = "visible"
+        document.getElementById("calllight").style.display = "block"
       }
     }
 
@@ -442,9 +509,9 @@ class Fmc {
       this._states.failstate = commObj.getvars[2].value
 
       if (this._states.failstate == 0) {
-        document.getElementById("faillight").style.visibility = "hidden"
+        document.getElementById("faillight").style.display = "none"
       } else {
-        document.getElementById("faillight").style.visibility = "visible"
+        document.getElementById("faillight").style.display = "block"
       }
     }
 
@@ -452,9 +519,9 @@ class Fmc {
       this._states.msgstate = commObj.getvars[3].value
 
       if (this._states.msgstate == 0) {
-        document.getElementById("msglight").style.visibility = "hidden"
+        document.getElementById("msglight").style.display = "none"
       } else {
-        document.getElementById("msglight").style.visibility = "visible"
+        document.getElementById("msglight").style.display = "block"
       }
     }
 
@@ -462,18 +529,21 @@ class Fmc {
       this._states.ofststate = commObj.getvars[4].value
 
       if (this._states.ofststate == 0) {
-        document.getElementById("ofstlight").style.visibility = "hidden"
+        document.getElementById("ofstlight").style.display = "none"
       } else {
-        document.getElementById("ofstlight").style.visibility = "visible"
+        document.getElementById("ofstlight").style.display = "block"
       }
     }
 
     if (commObj.getvars[5].value != this._states.lastbright) {
       this._states.lastbright = commObj.getvars[5].value
-     this._display.style.filter = "brightness(" + this._states.lastbright + ")"
+     this._display.style.opacity = this._states.lastbright
     }
   }
 
+  /**
+   * Scale element to fit screen
+   */
   scaleBasedOnWindow (element, scale = 1, fit = false) {
     if (!fit) {
       element.style.transform = 'scale(' + scale / Math.min(element.clientWidth / window.innerWidth, element.clientHeight / window.innerHeight) + ')'
@@ -487,15 +557,26 @@ class Fmc {
    */
    startMainLoop () {
     var t = this
-    window.setInterval(function () {
+    t._loop = window.setInterval(function () {
       t.mainLoop()
     }, this.loopInterval)
     t._states.loopRunning = true
   }
 
   /**
-   * Main loop sending periodic update requests
-   * to AAO
+   * Stop the main loop
+   */
+  stopMainLoop () {
+    var t = this
+    if (t._loop !== null && t._states.loopRunning === true) {
+      window.clearInterval(t._loop)
+      t._loop = null
+      t._states.loopRunning = false
+    }
+  }
+
+  /**
+   * Main loop sending periodic update requests to AAO
    */
   mainLoop () {
     var t = this

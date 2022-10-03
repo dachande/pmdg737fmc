@@ -1,22 +1,28 @@
-:root {
-  --bodyHeightScale: 1;
-}
-
-@keyframes TemporaryShow {
-  0%, 100% {
-    visibility: visible;
-  }
-}
-@keyframes TemporaryHide {
-  0%, 100% {
-    visibility: hidden;
-  }
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../fonts/inconsolata-v31-latin-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Consolas";
-  src: url("../fonts/consola.ttf") format("truetype");
-  font-weight: normal;
+  font-family: "FMC-Buttons";
+  src: url("../fonts/FMC-Buttons-Medium.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PMDG-B";
+  src: url("../fonts/PMDG_NG3_DU_B.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PMDG-C";
+  src: url("../fonts/PMDG_NG3_DU_C.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -30,13 +36,23 @@
   touch-action: none;
 }
 
+html,
 body {
+  width: 100%;
+  height: 100%;
+}
+
+body  {
   margin: 0;
   padding: 0;
-  background-color: #000;
-  font-family: "Consolas";
-  box-sizing: border-box;
   overflow: hidden;
+  touch-action: manipulation;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
 }
 
 .Selector {
@@ -48,6 +64,8 @@ body {
   background-image: url(../images/background.jpg);
   background-size: cover;
   background-position: center;
+  font-family: 'PMDG-B', 'Inconsolata', Arial, sans-serif;
+  font-size: 20px;
   color: #fff;
 }
 
@@ -66,17 +84,19 @@ body {
 
 .Selector__Header,
 .Selector__Subheader {
+  font-weight: 400;
   text-align: center;
 }
 
 .Selector__Header {
   margin: 0 0 120px;
-  font-size: 24px;
+  font-size: 36px;
+
 }
 
 .Selector__Subheader {
   margin: 0 0 64px;
-  font-size: 20px;
+  font-size: 32px;
 }
 
 .Selector__Selector {
@@ -89,11 +109,12 @@ body {
   display: block;
   flex: 1 1 auto;
   max-width: 64px;
-  padding: 40px 32px;
+  padding: 32px;
   margin: 0 16px;
   border: 1px solid #fff;
   border-radius: 8px;
   text-align: center;
+  line-height: 20px;
   cursor: pointer;
   transition: all .25s ease-in-out;
 }
@@ -103,189 +124,376 @@ body {
   color: #000;
 }
 
-.Fmc__Body {
+.Fmc {
   display: none;
   position: relative;
-  width: 740px;
-  height: 1104px;
-  margin: 0 auto;
+  width: 1036px;
+  height: 1561px;
   -webkit-transform-origin: top left;
   transform-origin: top left;
 }
 
-.Fmc__Body--ScreenOnly {
-  width: 100%;
-  height: 100%;
+.Fmc--ScreenOnly {
+  width: 747px;
+  height: 567px;
 }
 
-.Fmc__DisplayContainer {
-  position: relative;
-  top: 66px;
-  left: 102px;
-  width: 530px;
-  height: 405px;
-}
-
-.Fmc__Body--ScreenOnly .Fmc__DisplayContainer {
-  top: 0;
-  left: 0;
-  -webkit-transform-origin: top left;
-  transform-origin: top left;
+.Fmc__Case {
+  position: absolute;
+  filter: drop-shadow(1px 2px 4px rgba(114, 65, 0, 0.75));
 }
 
 .Fmc__Display {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 747px;
+  height: 567px;
+  top: 96px;
+  left: 146px;
+  overflow: hidden;
 }
 
-.Fmc__Background {
-  position: absolute;
+.Fmc--ScreenOnly .Fmc__Display {
   top: 0;
+  left: 0;
+}
+
+.Fmc__Display--Reflection::before {
+  content: '';
+  position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(../images/fmc_boeing-blau.png);
+  top: 0;
+  left: 0;
+  background-image: url(../images/display-glare.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Fmc__Display--Scratches::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(../images/display-scratches.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Fmc__Screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 17px 19px;
+  box-sizing: border-box;
+  font-family: 'Inconsolata';
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.Fmc--PMDG .Fmc__Screen {
+  font-family: 'PMDG-C';
+}
+
+.Fmc__Screen span {
+  text-shadow: 0px -1px 6px rgb(118 0 0);
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(24, 29.5px);
+  grid-template-rows: repeat(14, 36px);
+  column-gap: 0px;
+  row-gap: 1px;
+}
+
+.Grid__Item {
+  padding: 0;
+  text-align: center;
+}
+
+.Grid__Item--Line {
+  font-size: 42px;
+  line-height: 34px;
+}
+
+.Fmc--PMDG .Grid__Item--Line {
+  font-size: 56px;
+  line-height: 22px;
+}
+
+.Grid__Item--Label {
+  padding-top: 16px;
+  font-size: 28px;
+  line-height: 16px;
+}
+
+.Fmc--PMDG .Grid__Item--Label {
+  padding-top: 10px;
+  font-family: 'PMDG-B';
+  font-size: 30px;
+  line-height: 20px;
+}
+
+.Grid__Item--Scratchpad {
+  padding-top: 10px;
+  font-size: 42px;
+  line-height: 40px;
+}
+
+.Fmc--PMDG .Grid__Item--Scratchpad {
+  font-size: 56px;
+  line-height: 22px;
+}
+
+.Fmc__Screen .white {
+  color: rgba(254, 255, 243, .95);
+}
+
+.Fmc__Screen .cyan{
+  color: rgba(0, 255, 255, .95);
+}
+
+.Fmc__Screen .amber {
+  color: rgba(255, 191, 0, .95);
+}
+
+.Fmc__Screen .green {
+  color: rgba(53, 239, 22, .95)
+}
+
+.Fmc__Screen .red {
+  color: rgba(255, 0, 0, .95);
+}
+
+.Fmc__Screen .magenta {
+  color: rgba(255, 0, 255, .95);
+}
+
+.Fmc__Screen .gray {
+  color: rgba(128, 128, 128, .95);
+  text-shadow: 0 -1px 6px rgb(68 0 0);
+}
+
+.Fmc__Screen .Grid__Item--Scratchpad .gray {
+  text-shadow: 0 -1px 6px rgba(78, 0, 11, .5 );
+}
+
+.Fmc__Screen .inverted {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: #888;
+  color: rgba(254, 255, 243, .95);
+  text-shadow: none;
+  box-shadow: 0px -1px 6px rgba(56, 39, 0, .5);
+}
+
+.Fmc__Buttons {
+  position: relative;
+}
+
+.Fmc__Button {
+  position: absolute;
+  display: flex;
+  margin-top: -3px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'FMC-Buttons';
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.Fmc__Button:active {
+  margin-top: 1px;
+}
+
+.Fmc__Button--Lsk {
+  width: 60px;
+  height: 42px;
+  background-image: url(../images/button-lsk.png);
+  background-repeat: no-repeat;
   background-size: 100%;
 }
 
-span:empty::before {
-  content: " ";
+.Fmc__Button--Lsk:active {
+  margin-top: 0;
 }
 
-#highlight {
+.Fmc__Button--Brt {
+  width: 70px;
+  height: 70px;
+}
+
+.Fmc__Button--Fn {
+  width: 106px;
+  height: 69px;
+  background-image: url(../images/button-fn.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-size: 32px;
+  line-height: 26px;
+}
+
+.Fmc__Button--Num {
+  width: 63px;
+  height: 61px;
+  padding-top: 6px;
+  background-image: url(../images/button-num.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-size: 52px;
+}
+
+.Fmc__Button--Key {
+  width: 70px;
+  height: 68px;
+  padding-top: 2px;
+  background-image: url(../images/button-key.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-size: 52px;
+}
+
+.Fmc__Button--Border::before {
+  content: '';
   position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border: 4px solid #fff;
+  border-radius: 5px;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(24, 22px);
-  grid-template-rows: repeat(14, 27px);
-  column-gap: 0px;
-  row-gap: 0px;
+.Fmc__Button--Lsk1L { top: 178px; left: 34px; }
+.Fmc__Button--Lsk2L { top: 253px; left: 34px; }
+.Fmc__Button--Lsk3L { top: 328px; left: 34px; }
+.Fmc__Button--Lsk4L { top: 403px; left: 34px; }
+.Fmc__Button--Lsk5L { top: 478px; left: 34px; }
+.Fmc__Button--Lsk6L { top: 553px; left: 34px; }
+
+.Fmc__Button--Lsk1R { top: 178px; left: 944px; }
+.Fmc__Button--Lsk2R { top: 253px; left: 944px; }
+.Fmc__Button--Lsk3R { top: 328px; left: 944px; }
+.Fmc__Button--Lsk4R { top: 403px; left: 944px; }
+.Fmc__Button--Lsk5R { top: 478px; left: 944px; }
+.Fmc__Button--Lsk6R { top: 553px; left: 944px; }
+
+.Fmc__Button--BrtDown { top: 717px; left: 828px; }
+.Fmc__Button--BrtUp   { top: 717px; left: 898px; }
+
+.Fmc__Button--InitRef  { top: 726px; left: 119px; }
+.Fmc__Button--Rte      { top: 726px; left: 249px; }
+.Fmc__Button--Clb      { top: 726px; left: 378px; }
+.Fmc__Button--Crz      { top: 726px; left: 507px; }
+.Fmc__Button--Des      { top: 726px; left: 637px; }
+.Fmc__Button--Menu     { top: 816px; left: 119px; }
+.Fmc__Button--Legs     { top: 816px; left: 249px; }
+.Fmc__Button--DepArr   { top: 816px; left: 378px; }
+.Fmc__Button--Hold     { top: 816px; left: 507px; }
+.Fmc__Button--Prog     { top: 816px; left: 637px; }
+.Fmc__Button--Exec     { top: 816px; left: 781px; }
+.Fmc__Button--N1Limit  { top: 905px; left: 119px; }
+.Fmc__Button--Fix      { top: 905px; left: 249px; }
+.Fmc__Button--PrevPage { top: 996px; left: 119px; }
+.Fmc__Button--NextPage { top: 996px; left: 249px; }
+
+.Fmc__Button--1         { top: 1140px; left: 126px; }
+.Fmc__Button--2         { top: 1140px; left: 223px; }
+.Fmc__Button--3         { top: 1140px; left: 320px; }
+.Fmc__Button--4         { top: 1241px; left: 126px; }
+.Fmc__Button--5         { top: 1241px; left: 223px; }
+.Fmc__Button--6         { top: 1241px; left: 320px; }
+.Fmc__Button--7         { top: 1340px; left: 126px; }
+.Fmc__Button--8         { top: 1340px; left: 223px; }
+.Fmc__Button--9         { top: 1340px; left: 320px; }
+.Fmc__Button--Dot       { top: 1443px; left: 126px; }
+.Fmc__Button--0         { top: 1443px; left: 223px; }
+.Fmc__Button--PlusMinus { top: 1443px; left: 320px; }
+
+
+.Fmc__Button--PlusMinus {
+  font-size: 48px;
 }
-.grid-item-line {
-  font-size: 30px;
-  line-height: 34px;
-  text-align: center;
-  padding: 0px;
-}
-.grid-item-label {
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-  vertical-align: bottom;
-  padding-top: 10px;
-}
-.grid-item-page {
-  font-size: 22px;
-  text-align: center;
-  vertical-align: bottom;
-  padding-top: 5px;
-}
-.grid-item-inout {
-  font-size: 30px;
-  text-align: center;
-  padding-top: 10px;
-  padding-left: 4%;
-}
-.fmc-b737-main-display {
+
+.Fmc__Button--PlusMinus::before {
+  content: '+';
   position: absolute;
-  width: 100%;
-  height: 100%;
-  color: white;
-  font-size: 30px;
-  color: white;
+  top: 2px;
+  left: 10px;
+  font-size: 40px;
 }
 
-.white {
-  color: white;
-}
 
-.cyan {
-  color: #00FFFF;
-}
-
-.amber {
-  color: #ffbf00;
-}
-
-.green {
-  color: #1daa05;
-}
-
-.red {
-  color: #ff0000;
-}
-
-.magenta {
-  color: #ff00ff;
-}
-
-.gray {
-  color: #808080;
-}
-
-.inverted {
-  color: white;
-  background: #808080;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-fmc-b737-main-display::before {
-  content: " ";
-  display: block;
+.Fmc__Button--PlusMinus::after {
+  content: '-';
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 2;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
+  bottom: -3px;
+  right: 13px;
+  font-size: 40px;
 }
 
-.Button {
+.Fmc__Button--A { top: 934px; left: 439px; }
+.Fmc__Button--B { top: 934px; left: 540px; }
+.Fmc__Button--C { top: 934px; left: 641px; }
+.Fmc__Button--D { top: 934px; left: 741px; }
+.Fmc__Button--E { top: 934px; left: 842px; }
+.Fmc__Button--F { top: 1035px; left: 439px; }
+.Fmc__Button--G { top: 1035px; left: 540px; }
+.Fmc__Button--H { top: 1035px; left: 641px; }
+.Fmc__Button--I { top: 1035px; left: 741px; }
+.Fmc__Button--J { top: 1035px; left: 842px; }
+.Fmc__Button--K { top: 1136px; left: 439px; }
+.Fmc__Button--L { top: 1136px; left: 540px; }
+.Fmc__Button--M { top: 1136px; left: 641px; }
+.Fmc__Button--N { top: 1136px; left: 741px; }
+.Fmc__Button--O { top: 1136px; left: 842px; }
+.Fmc__Button--P { top: 1237px; left: 439px; }
+.Fmc__Button--Q { top: 1237px; left: 540px; }
+.Fmc__Button--R { top: 1237px; left: 641px; }
+.Fmc__Button--S { top: 1237px; left: 741px; }
+.Fmc__Button--T { top: 1237px; left: 842px; }
+.Fmc__Button--U { top: 1338px; left: 439px; }
+.Fmc__Button--V { top: 1338px; left: 540px; }
+.Fmc__Button--W { top: 1338px; left: 641px; }
+.Fmc__Button--X { top: 1338px; left: 741px; }
+.Fmc__Button--Y { top: 1338px; left: 842px; }
+.Fmc__Button--Z { top: 1439px; left: 439px; }
+.Fmc__Button--Space { top: 1439px; left: 540px; }
+.Fmc__Button--Delete { top: 1439px; left: 641px; }
+.Fmc__Button--Slash { top: 1439px; left: 741px; }
+.Fmc__Button--Clear { top: 1439px; left: 842px; }
+
+.Fmc__Button--Space,
+.Fmc__Button--Delete,
+.Fmc__Button--Clear {
+  font-size: 32px;
+}
+
+.Fmc__Light {
   position: absolute;
-  cursor: pointer;
+  display: none;
 }
 
-.Button--lsk {
-  width: 50px;
-  height: 35px;
-}
-
-.Button--nav {
-  width: 78px;
-  height: 55px;
-}
-
-.Button--brt {
-  width: 39px;
-  height: 45px;
-}
-
-.Button--numpad {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.Button--keypad {
-  width: 52px;
-  height: 52px;s
-}
+.Fmc__Light--Execute { top: 782px; left: 781px; }
+.Fmc__Light--Call { top: 1046px; left: 54px; }
+.Fmc__Light--Fail { top: 1172px; left: 54px; }
+.Fmc__Light--Message { top: 1046px; left: 965px; }
+.Fmc__Light--Offset { top: 1172px; left: 965px; }
 
 @media screen and (min-width: 500px) {
   .Selector__Header {
-    font-size: 48px;
+    font-size: 58px;
   }
 
   .Selector__Subheader {
-    font-size: 32px;
+    font-size: 42px;
   }
 }
