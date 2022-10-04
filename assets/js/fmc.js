@@ -204,23 +204,23 @@ class Fmc {
   convertCharacter(char) {
     switch (char) {
       case '0':
-        return (this.usePMDGFont === true) ? "£" : char
+        return (this.usePMDGFont === true) ? '£' : char
       case '&':
-        return "&amp;"
+        return '&amp;'
       case '<':
-        return "&lt;"
+        return '&lt;'
       case '>':
-        return "&gt;"
+        return '&gt;'
       case 'ê':
-        return "□"
+        return '<span class="square">&#9723;</span>'
       case 'ë':
-        return "■"
+        return '<span class="square">&#9724;</span>'
       case '¡':
-        return (this.usePMDGFont === true) ? char : "←"
+        return (this.usePMDGFont === true) ? char : '←'
       case '¢':
-        return (this.usePMDGFont === true) ? char : "→"
+        return (this.usePMDGFont === true) ? char : '→'
       case ' ':
-        return "&nbsp;"
+        return '&nbsp;'
       default:
         return char
     }
