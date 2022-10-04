@@ -1,6 +1,6 @@
 # Axis And Ohs (AAO) PMDG 737 FMC add-on for Microsoft Flight Simulator 2020
 
-by pilznille / Version 1.20 / 3 October 2022
+by pilznille / Version 1.21 / 4 October 2022
 
 This tool is an add-on for Axis And Ohs (AAO) that allows you to access the CDU of the PMDG 737 for Microsoft Flight Simulator 2020 via a web browser. It shows a complete CDU (screen + keypad) and can be operated 100% via the web browser.
 
