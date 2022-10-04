@@ -195,7 +195,7 @@ body  {
 }
 
 .Fmc--PMDG .Fmc__Screen {
-  font-family: 'PMDG-C';
+  font-family: 'PMDG-C', 'Inconsolata', Arial, sans-serif;;
 }
 
 .Fmc__Screen span {
@@ -233,7 +233,7 @@ body  {
 
 .Fmc--PMDG .Grid__Item--Label {
   padding-top: 10px;
-  font-family: 'PMDG-B';
+  font-family: 'PMDG-B', 'Inconsolata', Arial, sans-serif;;
   font-size: 30px;
   line-height: 20px;
 }
@@ -292,6 +292,11 @@ body  {
   box-shadow: 0px -1px 6px rgba(56, 39, 0, .5);
 }
 
+.Fmc__Screen .square {
+  font-family: 'FMC-Buttons', 'Inconsolata', Arial, sans-serif;
+  font-size: 48px;
+}
+
 .Fmc__Buttons {
   position: relative;
 }
@@ -303,7 +308,7 @@ body  {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  font-family: 'FMC-Buttons';
+  font-family: 'FMC-Buttons', 'Inconsolata', Arial, sans-serif;
   text-align: center;
   text-transform: uppercase;
   color: #fff;
