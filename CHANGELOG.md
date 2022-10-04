@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.21
+
+* Fix size of square characters on iOS devices
+
 ## Version 1.20
 
 * Complete graphical rework of the CDU interface
