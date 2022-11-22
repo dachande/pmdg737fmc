@@ -122,12 +122,22 @@ class Fmc {
       {
         eventIdOffset: 0,
         cduDataVar: '(L:AAO_PMDG_CDU_0, String)',
-        cduBrightnessVar: '(L:AAO_PMDG_CDU_0_BRT)'
+        cduBrightnessVar: '(L:AAO_PMDG_CDU_0_BRT)',
+        cduExecLightVar: '(L:switch_6042_73X, number)',
+        cduCallLightVar: '(L:switch_6030_73X, number)',
+        cduFailLightVar: '(L:switch_6031_73X, number)',
+        cduMessageLightVar: '(L:switch_6040_73X, number)',
+        cduOffsetLightVar: '(L:switch_6041_73X, number)'
       },
       {
         eventIdOffset: 7200,
         cduDataVar: '(L:AAO_PMDG_CDU_1, String)',
-        cduBrightnessVar: '(L:AAO_PMDG_CDU_1_BRT)'
+        cduBrightnessVar: '(L:AAO_PMDG_CDU_1_BRT)',
+        cduExecLightVar: '(L:switch_6762_73X, number)',
+        cduCallLightVar: '(L:switch_6750_73X, number)',
+        cduFailLightVar: '(L:switch_6751_73X, number)',
+        cduMessageLightVar: '(L:switch_6760_73X, number)',
+        cduOffsetLightVar: '(L:switch_6761_73X, number)'
       }
     ]
 
@@ -288,11 +298,11 @@ class Fmc {
     ]
 
     this._mainRequestObj.getVars = [
-      { "var": "(L:switch_6042_73X, number)", "value": 0.0 },
-      { "var": "(L:switch_6030_73X, number)", "value": 0.0 },
-      { "var": "(L:switch_6031_73X, number)", "value": 0.0 },
-      { "var": "(L:switch_6040_73X, number)", "value": 0.0 },
-      { "var": "(L:switch_6041_73X, number)", "value": 0.0 },
+      { "var": this._cduData.cduExecLightVar, "value": 0.0 },
+      { "var": this._cduData.cduCallLightVar, "value": 0.0 },
+      { "var": this._cduData.cduFailLightVar, "value": 0.0 },
+      { "var": this._cduData.cduMessageLightVar, "value": 0.0 },
+      { "var": this._cduData.cduOffsetLightVar, "value": 0.0 },
       { "var": this._cduData.cduBrightnessVar, "value": 0.0 }
     ]
   }
