@@ -326,6 +326,8 @@ class Fmc {
         button.addEventListener('pointerdown', function () { t.sendEventRelease(pushEventId, eventTarget) })
       }
 
+      button.addEventListener('pointerdown', function () { navigator.vibrate(50) })
+
       // Prefill keymap
       if (typeof keyData.key !== 'undefined') {
         t._keymap[keyData.key] = keyData
