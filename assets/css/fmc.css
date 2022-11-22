@@ -325,6 +325,21 @@ body  {
   margin-top: 1px;
 }
 
+.Fmc__Button--CduSwitch {
+  width: 54px;
+  height: 50px;
+}
+
+.Fmc__Button--CduSwitchLeft {
+  top: 8px;
+  left: 27px;
+}
+
+.Fmc__Button--CduSwitchRight {
+  top: 8px;
+  right: 25px;
+}
+
 .Fmc__Button--Lsk {
   width: 60px;
   height: 42px;

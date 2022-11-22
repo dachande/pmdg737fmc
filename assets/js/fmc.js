@@ -23,6 +23,7 @@ class Fmc {
     this._selector = document.getElementsByClassName('Selector')[0]
     this._selectorButtons = document.getElementsByClassName('Selector__Button')
     this._fmcButtons = document.getElementsByClassName('Fmc__Button')
+    this._cduSwitchButtons = document.getElementsByClassName('Fmc__Button--CduSwitch')
     this._fmc = document.getElementsByClassName('Fmc')[0]
     this._fmcDisplay = document.getElementsByClassName('Fmc__Display')[0]
     this._display = document.getElementsByClassName('Fmc__Grid')[0]
@@ -361,6 +362,16 @@ class Fmc {
     });
 
     //
+    // Initialize CDU switch buttons
+    //
+    [].forEach.call(t._cduSwitchButtons, function (button) {
+      const cduId = button.dataset.cdu
+       button.addEventListener('click', function () {
+        t.switchCdu(cduId)
+       })
+    });
+
+    //
     // Set click event on CDU select buttons on select screen
     //
     [].forEach.call(t._selectorButtons, function (button) {
@@ -368,14 +379,14 @@ class Fmc {
       button.addEventListener('click', function () {
         t.switchCdu(cduId)
       })
-    })
+    });
 
     //
     // Prevent long press from opening context menu to allow long press of CDU buttons
     //
     t._fmc.addEventListener('contextmenu', function (e) {
       e.preventDefault();
-    });
+    })
 
     //
     // Rescale CDU on resize
