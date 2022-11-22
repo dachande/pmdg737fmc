@@ -7,6 +7,7 @@
 * Add touch vibration on mobile devices that supports it
 * Add version number to CDU selection screen to better identify which version is being used
 * Add querystring parameter to allow preselection of left/right CDU skipping the preselect screen
+* Allow switching between CDUs without the need to reload the browser window to get back to preselect screen
 * Some minor code optimizations
 
 ## Version 1.21

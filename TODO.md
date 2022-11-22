@@ -2,7 +2,6 @@
 
 The following features are still to be implemented.
 
-* Switch between CDUs without the need to reload the browser window to get back to preselect screen
 * Add button input queue for faster input
 
 ## Known Bugs:
