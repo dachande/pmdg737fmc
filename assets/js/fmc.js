@@ -491,7 +491,6 @@ class Fmc {
           }
         }
 
-        console.log(newInner)
         this._display.innerHTML = newInner
         this._states.lasthash = hashstr
       }
