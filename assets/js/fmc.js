@@ -160,13 +160,29 @@ class Fmc {
     // CDU Id must be 0 or 1
     cduId = parseInt(cduId)
     if (isNaN(cduId) || cduId < 0 || cduId > 1) {
-      return
+      return false
     }
 
     this.cduId = cduId
     this._cduData = this._cdu[this.cduId]
 
     this.initializeRequestObject()
+
+    return true
+  }
+
+  switchCdu (cduId) {
+    if (this.setCdu(cduId) === false) {
+      return
+    }
+
+    if (this._states.loopRunning === false) {
+      this.startMainLoop()
+    }
+
+    this._selector.style.display = 'none'
+    this._fmc.style.display = 'block'
+    this.scaleBasedOnWindow(this._fmc, 1, true)
   }
 
   /**
@@ -350,15 +366,7 @@ class Fmc {
     [].forEach.call(t._selectorButtons, function (button) {
       const cduId = button.dataset.cduid
       button.addEventListener('click', function () {
-        t.setCdu(cduId)
-
-        if (t._states.loopRunning === false) {
-          t.startMainLoop()
-        }
-
-        t._selector.style.display = 'none'
-        t._fmc.style.display = 'block'
-        t.scaleBasedOnWindow(t._fmc, 1, true)
+        t.switchCdu(cduId)
       })
     })
 
@@ -446,6 +454,16 @@ class Fmc {
         event.target.dispatchEvent(new TouchEvent("touchend",event))
       }
     })
+
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    })
+
+    let cduPreselection = params.cdu
+
+    if (cduPreselection !== null) {
+      t.switchCdu(cduPreselection)
+    }
   }
 
   /**
