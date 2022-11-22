@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 1.22
+
+* Fix EXEC light on right CDU not illuminating
+* Remove debugging snippet that was accidentially left in the code
+* Add touch vibration on mobile devices that supports it
+* Add version number to CDU selection screen to better identify which version is being used
+* Add querystring parameter to allow preselection of left/right CDU skipping the preselect screen
+* Some minor code optimizations
+
 ## Version 1.21
 
 * Fix size of square characters on iOS devices
