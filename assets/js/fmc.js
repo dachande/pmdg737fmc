@@ -516,52 +516,27 @@ class Fmc {
 
     if (commObj.getvars[0].value != this._states.execstate) {
       this._states.execstate = commObj.getvars[0].value
-
-      if (this._states.execstate == 0) {
-        document.getElementById("execlight").style.display = "none"
-      } else {
-        document.getElementById("execlight").style.display = "block"
-      }
+      document.getElementById("execlight").style.display = (this._states.execstate == 0) ? "none" : "block"
     }
 
     if (commObj.getvars[1].value != this._states.callstate) {
       this._states.callstate = commObj.getvars[1].value
-
-      if (this._states.callstate == 0) {
-        document.getElementById("calllight").style.display = "none"
-      } else {
-        document.getElementById("calllight").style.display = "block"
-      }
+      document.getElementById("calllight").style.display = (this._states.callstate == 0) ? "none" : "block"
     }
 
     if (commObj.getvars[2].value != this._states.failstate) {
       this._states.failstate = commObj.getvars[2].value
-
-      if (this._states.failstate == 0) {
-        document.getElementById("faillight").style.display = "none"
-      } else {
-        document.getElementById("faillight").style.display = "block"
-      }
+      document.getElementById("faillight").style.display = (this._states.failstate == 0) ? "none" : "block"
     }
 
     if (commObj.getvars[3].value != this._states.msgstate) {
       this._states.msgstate = commObj.getvars[3].value
-
-      if (this._states.msgstate == 0) {
-        document.getElementById("msglight").style.display = "none"
-      } else {
-        document.getElementById("msglight").style.display = "block"
-      }
+      document.getElementById("msglight").style.display = (this._states.msgstate == 0) ? "none" : "block"
     }
 
     if (commObj.getvars[4].value != this._states.ofststate) {
       this._states.ofststate = commObj.getvars[4].value
-
-      if (this._states.ofststate == 0) {
-        document.getElementById("ofstlight").style.display = "none"
-      } else {
-        document.getElementById("ofstlight").style.display = "block"
-      }
+      document.getElementById("ofstlight").style.display = (this._states.ofststate == 0) ? "none" : "block"
     }
 
     if (commObj.getvars[5].value != this._states.lastbright) {
@@ -610,10 +585,11 @@ class Fmc {
   mainLoop () {
     var t = this
     var request = new XMLHttpRequest()
+    var requestURI = this.aaoUri + "?json=" + JSON.stringify(this._mainRequestObj)
     request.addEventListener('load', function () {
       t.dataRequestListener(this)
     })
-    request.open('GET', this.aaoUri + "?json=" + JSON.stringify(this._mainRequestObj))
+    request.open('GET', requestURI)
     request.send()
   }
 }
