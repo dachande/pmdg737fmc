@@ -94,6 +94,10 @@ body  {
 
 }
 
+.Selector__Header--Version {
+  font-size: 24px;
+}
+
 .Selector__Subheader {
   margin: 0 0 64px;
   font-size: 32px;
