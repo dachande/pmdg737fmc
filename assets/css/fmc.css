@@ -198,11 +198,15 @@ body  {
   text-transform: uppercase;
 }
 
+.Fmc--ScreenOnly .Fmc__Screen {
+  padding: 0 12px;
+}
+
 .Fmc--PMDG .Fmc__Screen {
   font-family: 'PMDG-C', 'Inconsolata', Arial, sans-serif;;
 }
 
-.Fmc__Screen span {
+.Fmc:not(.Fmc--ScreenOnly) .Fmc__Screen span {
   text-shadow: 0px -1px 6px rgb(118 0 0);
 }
 
@@ -212,6 +216,11 @@ body  {
   grid-template-rows: repeat(14, 36px);
   column-gap: 0px;
   row-gap: 1px;
+}
+
+.Fmc--ScreenOnly .Grid {
+  grid-template-rows: repeat(14, 34.7px);
+  row-gap: 6px;
 }
 
 .Grid__Item {
@@ -253,6 +262,10 @@ body  {
   line-height: 22px;
 }
 
+.Fmc--ScreenOnly .Grid__Item--Scratchpad {
+  padding-top: 0;
+}
+
 .Fmc__Screen .white {
   color: rgba(254, 255, 243, .95);
 }
@@ -279,10 +292,13 @@ body  {
 
 .Fmc__Screen .gray {
   color: rgba(128, 128, 128, .95);
+}
+
+.Fmc:not(.Fmc--ScreenOnly) .Fmc__Screen .gray {
   text-shadow: 0 -1px 6px rgb(68 0 0);
 }
 
-.Fmc__Screen .Grid__Item--Scratchpad .gray {
+.Fmc:not(.Fmc--ScreenOnly) .Fmc__Screen .Grid__Item--Scratchpad .gray {
   text-shadow: 0 -1px 6px rgba(78, 0, 11, .5 );
 }
 
@@ -293,6 +309,9 @@ body  {
   background: #888;
   color: rgba(254, 255, 243, .95);
   text-shadow: none;
+}
+
+.Fmc:not(.Fmc--ScreenOnly) .Fmc__Screen .inverted {
   box-shadow: 0px -1px 6px rgba(56, 39, 0, .5);
 }
 
