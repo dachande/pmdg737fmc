@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.23
+
+* Modify click spot for CDU switch
+* Update line-positioning on screen only variant
+* Remove font glow on screen only variant
+
 ## Version 1.22
 
 * Fix EXEC light on right CDU not illuminating
