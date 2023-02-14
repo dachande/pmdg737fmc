@@ -345,18 +345,18 @@ body  {
 }
 
 .Fmc__Button--CduSwitch {
-  width: 54px;
-  height: 50px;
+  width: 90px;
+  height: 90px;
 }
 
 .Fmc__Button--CduSwitchLeft {
-  top: 8px;
-  left: 27px;
+  top: 55px;
+  left: 0px;
 }
 
 .Fmc__Button--CduSwitchRight {
-  top: 8px;
-  right: 25px;
+  top: 55px;
+  right: 0px;
 }
 
 .Fmc__Button--Lsk {
