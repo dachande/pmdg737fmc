@@ -445,6 +445,10 @@ body  {
   border-radius: 5px;
 }
 
+.Fmc--Dark .Fmc__Button--Border::before {
+  border-color: #bbb;
+}
+
 .Fmc__Button--Lsk1L { top: 178px; left: 34px; }
 .Fmc__Button--Lsk2L { top: 253px; left: 34px; }
 .Fmc__Button--Lsk3L { top: 328px; left: 34px; }
