@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.24
+
+* Add dark case
+
 ## Version 1.23
 
 * Modify click spot for CDU switch
