@@ -13,6 +13,7 @@ class Fmc {
     this.showScratches = opts.showScratches || false
     this.showReflection = opts.showReflection || false
     this.usePMDGFont = opts.usePMDGFont || false
+    this.useDarkCase = opts.useDarkCase || false
 
     // Break script if AAO URI is not supplied
     if (typeof this.aaoUri === 'undefined') {
@@ -428,6 +429,13 @@ class Fmc {
     //
     if (t.usePMDGFont === true) {
       t._fmc.classList.add('Fmc--PMDG')
+    }
+
+    //
+    // Use dark case
+    //
+    if (t.useDarkCase === true) {
+      t._fmc.classList.add('Fmc--Dark')
     }
 
     //

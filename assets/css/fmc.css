@@ -143,8 +143,18 @@ body  {
 }
 
 .Fmc__Case {
+  display: none;
   position: absolute;
+}
+
+.Fmc:not(.Fmc--Dark) .Fmc__Case--Light {
+  display: block;
   filter: drop-shadow(1px 2px 4px rgba(114, 65, 0, 0.75));
+}
+
+.Fmc.Fmc--Dark .Fmc__Case--Dark {
+  display: block;
+  filter: drop-shadow(1px 2px 4px rgba(65, 37, 0, 0.75));
 }
 
 .Fmc__Display {
@@ -340,6 +350,10 @@ body  {
   touch-action: manipulation;
 }
 
+.Fmc--Dark .Fmc__Button {
+  color: #bbb;
+}
+
 .Fmc__Button:active {
   margin-top: 1px;
 }
@@ -367,6 +381,10 @@ body  {
   background-size: 100%;
 }
 
+.Fmc--Dark .Fmc__Button--Lsk {
+  background-image: url(../images/button-lsk-dark.png);
+}
+
 .Fmc__Button--Lsk:active {
   margin-top: 0;
 }
@@ -386,6 +404,10 @@ body  {
   line-height: 26px;
 }
 
+.Fmc--Dark .Fmc__Button--Fn {
+  background-image: url(../images/button-fn-dark.png);
+}
+
 .Fmc__Button--Num {
   width: 63px;
   height: 61px;
@@ -394,6 +416,10 @@ body  {
   background-repeat: no-repeat;
   background-size: 100%;
   font-size: 52px;
+}
+
+.Fmc--Dark .Fmc__Button--Num {
+  background-image: url(../images/button-num-dark.png);
 }
 
 .Fmc__Button--Key {
@@ -406,6 +432,10 @@ body  {
   font-size: 52px;
 }
 
+.Fmc--Dark .Fmc__Button--Key {
+  background-image: url(../images/button-key-dark.png);
+}
+
 .Fmc__Button--Border::before {
   content: '';
   position: absolute;
@@ -413,6 +443,10 @@ body  {
   height: 44px;
   border: 4px solid #fff;
   border-radius: 5px;
+}
+
+.Fmc--Dark .Fmc__Button--Border::before {
+  border-color: #bbb;
 }
 
 .Fmc__Button--Lsk1L { top: 178px; left: 34px; }
